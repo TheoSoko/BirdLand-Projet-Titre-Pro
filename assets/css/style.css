@@ -37,7 +37,6 @@ h1{
     font-family: perpetua;
     text-align: center;
     padding-top: 0.54em ;
-    margin-left: 35%;
     margin-top: 1.3em;
     border: solid 0.4px #707070;
 }
@@ -48,10 +47,13 @@ h1{
     font-family: perpetua;
     color: #3C3B3B;
     text-align: center;
-    margin-left: 26.9%;
-    margin-top: 5.5em;
-    padding-left: 4.6em;
-    padding-right: 4.6em;
+    margin-top: 5.6em;
+}
+@media screen and (min-width: 900px){
+    .presentation{
+        padding-left: 4.6em;
+        padding-right: 4.6em;
+    }
 }
 h2{
     font-size: 3.27em;
@@ -59,4 +61,31 @@ h2{
 .presentationText{
     font-size: 1.5em;
     margin-bottom: 0.6em;
+}
+#textLinkPresentation{
+    width: 505px;
+    height: 135px;
+    background-color: #262B32;
+    color: #A9A5A5;
+    font-family: perpetua;
+    font-size: 1.7em;
+    text-align: center;
+    padding-top: 1em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    margin-top: 2.2em;
+    border-radius: 1em;
+    border: solid 0.4px #707070;
+}
+.blocCollection{
+    width: 390px;
+    height: 300px;
+    background-color: #A1A2A7;
+    font-size: 3.3em;
+    font-family: perpetua;
+    vertical-align: text-bottom;
+}
+.blocCollection a {
+    text-decoration: none;
+    color: #3C3B3B;
 }
