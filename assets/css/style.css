@@ -1,0 +1,62 @@
+body{
+    background-color: #121417;
+}    
+li {
+    list-style: none;
+}
+.navbar-costum{
+    background-color: #262B32;
+}
+.nav-link{
+    color: #A6A3A3;
+    font-family: perpetua;
+    font-size: 1.7em;
+}
+.navbar-brand{
+    color: #A6A3A3;
+    font-family: perpetua;
+    font-size: 1.7em;
+}
+.navbar-brand{
+    margin-left: 4.3em;
+}
+.nav-link{
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+}
+#navbarSupportedContent{
+    justify-content: center;
+    margin-right: 2.2em;
+}
+h1{
+    width: 475px;
+    height: 135px;
+    background-color: #000000;
+    color: #A9A5A5;
+    font-size: 3.6em;
+    font-family: perpetua;
+    text-align: center;
+    padding-top: 0.54em ;
+    margin-left: 35%;
+    margin-top: 1.3em;
+    border: solid 0.4px #707070;
+}
+.presentation{
+    width: 727px;
+    height: 332px;
+    background-color: #A1A2A7;
+    font-family: perpetua;
+    color: #3C3B3B;
+    text-align: center;
+    margin-left: 26.9%;
+    margin-top: 5.5em;
+    padding-left: 4.6em;
+    padding-right: 4.6em;
+}
+h2{
+    font-size: 3.27em;
+}
+.presentationText{
+    font-size: 1.5em;
+    margin-bottom: 0.6em;
+}
