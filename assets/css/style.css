@@ -28,7 +28,7 @@ li {
     justify-content: center;
     margin-right: 2.2em;
 }
-h1{
+#h1mainTitle{
     width: 475px;
     height: 135px;
     background-color: #000000;
@@ -49,13 +49,7 @@ h1{
     text-align: center;
     margin-top: 5.6em;
 }
-@media screen and (min-width: 900px){
-    .presentation{
-        padding-left: 4.6em;
-        padding-right: 4.6em;
-    }
-}
-h2{
+#h2Presentation{
     font-size: 3.27em;
 }
 .presentationText{
@@ -71,8 +65,7 @@ h2{
     font-size: 1.7em;
     text-align: center;
     padding-top: 1em;
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+
     margin-top: 2.2em;
     border-radius: 1em;
     border: solid 0.4px #707070;
@@ -81,37 +74,129 @@ h2{
     margin-bottom: 5em;
 }
  .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists{
-    width: 9em;
+    width: 9.1em;
     height: 5.9em;
     background-color: #A1A2A7;
     font-family: perpetua;
-    padding-top: 2em;
+    padding-top: 2.1em;
 }
 .blocCulture{
-    width: 10.5em;
+    width: 10.6em;
     height: 5.9em;
     background-color: #A1A2A7;
     font-family: perpetua;
     margin-bottom: 2.7em;
     padding-top: 2em;
 }
-@media screen and (min-width: 900px){
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists,.blocCulture{
-        font-size: 3.3em;
-    }
-}
-@media screen and (min-width: 576px){
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
-        font-size: 3em;
-        margin-bottom: 3em;
-    }
-}
 @media screen and (max-width: 576px){
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists,.blocCulture{
+    #h1mainTitle{
+        background-color: #A1A2A7;
+        color: #3C3B3B;
+        border: solid 1px #3C3B3B;
+        font-size: 2.9em;
+        padding-top: 0.7em;
+        width: 7.8em;
+        height: 2.6em;
+        margin-bottom: -0.3em;
+    }
+    .presentation{
+        width: 361px;
+        height: 345px;
+    }
+    #h2Presentation{
+        font-size: 2.4em;
+        padding-bottom: 0.2em;
+    }
+    .presentationText{
+        font-size: 1.2em;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 0.8em;
+    }
+
+    #textLinkPresentation{
+        width: 505px;
+        height: 90px;
+        font-size: 1.3em;
+        padding-top: 0.6em;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-top: 2.2em;
+        border-radius: 1.7em;}
+    
+    .blocTextLink{
+        margin-bottom: 4.0em;
+        margin-top: 1.4em;
+    }
+
+    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
         font-size: 2.6em;
+        margin-bottom: 1.15em;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    .blocCulture{
+        width: 9.1em;
+    }
+}
+
+
+@media screen and (min-width: 576px){
+    .presentation{
+        margin-top: 4em;
+        width: 500px;
+        height: 360px;
         margin-bottom: 1em;
     }
+    #h2Presentation{
+        font-size: 2.8em;
+        padding-bottom: 0.2em;
+    }
+    .presentationText{
+        font-size: 1.3em;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 0.8em;
+    }
+
+    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+        font-size: 3em;
+        margin-bottom: 2.2em;
+    }
+    .blocCulture{
+        width: 9.1em;
+    }
 }
+@media screen and (min-width: 900px){
+    .presentation{
+        width: 650px;
+    }
+    #h2Presentation{
+        font-size: 2.8em;
+        padding-bottom: 0.4em;
+    }
+    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+        font-size: 3.5em;
+        margin-bottom: 2.1em;
+    }
+    .blocCulture{
+        width: 9.1em;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+        font-size: 3.5em;
+        margin-bottom: 2.6em;
+    }
+    .blocCollection, .blocMusiciens{
+        margin-left: 0.8em;
+    }
+    .blocPlaylists, .blocArticles{
+        margin-right: 0.8em;
+    }
+}
+
 .blocCategoryText {
     text-decoration: none;
     color: #3C3B3B;
