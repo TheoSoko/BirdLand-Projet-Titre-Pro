@@ -1,7 +1,10 @@
 body{
     background-color: #121417;
+    font-family: perpetua;
+    overflow-x: hidden;
+
 }    
-li {
+.navbar-collapse li {
     list-style: none;
 }
 .navbar-costum{
@@ -28,7 +31,19 @@ li {
     justify-content: center;
     margin-right: 2.2em;
 }
-#h1mainTitle{
+#h1mainTitleIndex{
+    width: 475px;
+    height: 135px;
+    background-color: #000000;
+    color: #A9A5A5;
+    font-size: 3.6em;
+    font-family: perpetua;
+    text-align: center;
+    padding-top: 0.54em ;
+    margin-top: 1.3em;
+    border: solid 0.4px #707070;
+}
+#h1mainTitleCollection{
     width: 475px;
     height: 135px;
     background-color: #000000;
@@ -70,15 +85,27 @@ li {
     border-radius: 1em;
     border: solid 0.4px #707070;
 }
+.blocCategoryText {
+    text-decoration: none;
+    color: #3C3B3B;
+}
+.blocCategoryTextDark {
+    text-decoration: none;
+    color: #A1A2A7;
+}
 .blocTextLink{
     margin-bottom: 5em;
 }
- .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists{
+ .blocCategory{
     width: 9.1em;
     height: 5.9em;
     background-color: #A1A2A7;
     font-family: perpetua;
     padding-top: 2.1em;
+}
+ .blocCategoryDark{
+    background-color: #403E3E;
+
 }
 .blocCulture{
     width: 10.6em;
@@ -88,8 +115,68 @@ li {
     margin-bottom: 2.7em;
     padding-top: 2em;
 }
+
+#selectOrderCollection{
+    color: #A9A5A5;
+    font-weight: bold;
+    font-family: perpetua;
+    font-size: 1.3em;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+#pageNumber{
+    color: #A9A5A5;
+    font-size: 1.2em;
+}
+#numberOfItemsDisplayed{
+    color: #A9A5A5;
+    font-size: 1.2em;
+}
+.album{
+    width: 355px;
+    height: 355px;
+    background-color: #898989;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.albumInfos{
+    color: #A9A5A5;
+    font-size: 1.25em;
+}
+.albumCol{
+    margin-top: -39px;
+}
+
+.articlesPresentation{
+    width: 385px;
+    height: 190px;
+    background-color: #262B32;
+    color: #A9A5A5;
+    font-family: perpetua;
+    text-align: center;
+    padding-top: 1em;
+    margin-top: 2.2em;
+    border-radius: 1.9em;
+    border: solid 0.4px #707070;
+}
+#articlesH2{
+    font-size: 1.6em;
+    margin-top: 1.3px;
+    margin-bottom: 9.5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#articlesParagraph{
+    font-size: 1.25em;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* MEDIA QUERIES : POUR PORTABLES */
 @media screen and (max-width: 576px){
-    #h1mainTitle{
+    #h1mainTitleIndex{
         background-color: #A1A2A7;
         color: #3C3B3B;
         border: solid 1px #3C3B3B;
@@ -98,6 +185,15 @@ li {
         width: 7.8em;
         height: 2.6em;
         margin-bottom: -0.3em;
+    }
+    #h1mainTitleCollection{
+        background-color: #000000;
+        color: #A9A5A5;
+        border: solid 1px #3C3B3B;
+        font-size: 2.9em;
+        padding-top: 0.6em;
+        width: 600px;
+        height: 2.4em;
     }
     .presentation{
         width: 361px;
@@ -122,14 +218,15 @@ li {
         padding-left: 1em;
         padding-right: 1em;
         margin-top: 2.2em;
-        border-radius: 1.7em;}
+        border-radius: 1.7em;
+    }
     
     .blocTextLink{
         margin-bottom: 4.0em;
         margin-top: 1.4em;
     }
 
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+    .blocCategory, .blocCulture{
         font-size: 2.6em;
         margin-bottom: 1.15em;
         margin-left: 0.5rem;
@@ -159,7 +256,7 @@ li {
         padding-bottom: 0.8em;
     }
 
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+    .blocCategory, .blocCulture{
         font-size: 3em;
         margin-bottom: 2.2em;
     }
@@ -175,7 +272,7 @@ li {
         font-size: 2.8em;
         padding-bottom: 0.4em;
     }
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+    .blocCategory, .blocCulture{
         font-size: 3.5em;
         margin-bottom: 2.1em;
     }
@@ -185,20 +282,73 @@ li {
 }
 
 @media screen and (min-width: 1200px){
-    .blocCollection, .blocArticles, .blocMusiciens, .blocPlaylists, .blocCulture{
+    #h1mainTitleCollection{
+        margin-top: 85px;
+    }
+    .blocCategory, .blocCulture{
         font-size: 3.5em;
         margin-bottom: 2.6em;
     }
-    .blocCollection, .blocMusiciens{
+    .blocCategory{
         margin-left: 0.8em;
     }
     .blocPlaylists, .blocArticles{
         margin-right: 0.8em;
     }
-}
+    .blocCategoryText {
+        text-decoration: none;
+        color: #3C3B3B;
+    }
+    .blocCategoryTextDark {
+        text-decoration: none;
+        color: #A1A2A7;
+    }
+    #selectOrderCollection{
+        margin-top: 95px;
+        margin-bottom: 35px;
+    }
+    .albumsRow{
+        margin-bottom: 65px;
+    }
+    .albumCol{
+        margin-top: auto;
+    }
+    .album{
+        width: 310px;
+        height: 310px;
+        background-color: #898989;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .albumInfos{
+        color: #A9A5A5;
+        font-size: 1.3em;
+    }
+    .collectionChangePage{
+        margin-bottom: 55px;
+    }
+    .articlesPresentation{
+        width: 750px;
+        height: 200px;
+        background-color: #262B32;
+        color: #A9A5A5;
+        font-family: perpetua;
+        text-align: center;
+        padding-top: 1em;
+        margin-top: 2.2em;
+        border-radius: 1.3em;
+        border: solid 0.4px #707070;
+        margin-top: 70px;
+        margin-bottom: 70px;
 
-.blocCategoryText {
-    text-decoration: none;
-    color: #3C3B3B;
+    }
+    #articlesH2{
+        font-size: 1.80em;
+        margin-bottom: 17px;
+        margin-top: 13px;
+    }
+    #articlesParagraph{
+        font-size: 1.45em;
+    }
 }
-
