@@ -4,6 +4,9 @@ body{
     overflow-x: hidden;
 
 }    
+.text-myColor{
+    color: #CECACA;
+}
 .navbar-collapse li {
     list-style: none;
 }
@@ -132,7 +135,7 @@ body{
     color: #A9A5A5;
     font-size: 1.2em;
 }
-.album{
+.album, .albumLone{
     width: 355px;
     height: 355px;
     background-color: #898989;
@@ -172,7 +175,9 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.credit-List{
+    list-style-type: none;
+}
 
 /* MEDIA QUERIES : POUR PORTABLES */
 @media screen and (max-width: 576px){
