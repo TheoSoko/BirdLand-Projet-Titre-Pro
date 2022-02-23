@@ -178,6 +178,39 @@ body{
 .credit-List{
     list-style-type: none;
 }
+#searchArticle{
+    width: 14em;
+    background-color: #A1A2A7;
+    border: solid 1.6px #707070;
+}
+.articlesCategoryTitle{
+    background-color: #000000;
+    color: #A9A5A5;
+    border: solid 1px #3C3B3B;
+    font-size: 2.7em;
+    height: 2em;
+}
+
+/* CSS PAGE ARTICLES */
+    @media screen and (min-width: 576px){
+        .articleItem{
+            width: 530px;
+        }
+    }
+    @media screen and (min-width: 992px){
+        .articleItem{
+            width: 458px;
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 /* MEDIA QUERIES : POUR PORTABLES */
 @media screen and (max-width: 576px){
@@ -355,5 +388,9 @@ body{
     }
     #articlesParagraph{
         font-size: 1.45em;
+    }
+    .albumCollectionImg{
+        width: 310px;
+        height: 310px;
     }
 }
