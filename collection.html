@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <li class="nav-item"> <a class="nav-link" href="collection.html" id="tst">Collection</a> </li>
             <li class="nav-item"> <a class="nav-link" href="articles.html">Articles</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Musiciens</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="musicians.html">Musiciens</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">Culture</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">Playlists</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">Recherche</a> </li>
@@ -29,13 +29,13 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col d-flex justify-content-center mt-sm-1 mt-md-3">
+        <div class="col d-flex justify-content-center mt-sm-1 mt-md-3 px-0">
             <H1 id="h1mainTitleCollection">COLLECTION</H1>
         </div>
     </div>
 
     <!-- Choix de Disposition des albums -->
-    <div class="row text-center" id="selectOrderCollection">
+    <div class="row text-center selectOrderDisplay">
         <div class="col-6 col-lg-3 text-end pe-3 text-lg-center pe-lg-0">
             <p>Aléatoire</p>
         </div>
@@ -58,6 +58,13 @@
         </div>
     </div>
 
+    <!--Barre de recherche-->
+    <div class="text-center mb-5 mt-3 py-3 me-4">
+        <svg class="mb-1 ms-1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+        <input type="search" name="searchArticle" id="searchArticle" class="py-1 ms-2"> 
+    </div>
+
+    <!-- Disposition et navigation-->
     <div class="row text-center mt-4 collectionChangePage">
         <div class="col-4">
             <img src="assets/img/left.svg" alt="Bouton page précédente" height="46px" width="46px" class="me-2" />
@@ -77,63 +84,63 @@
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
         <div class="col albumCol">
             <a href="albumTemplate.html"><div class="album"><img src="assets/img/P.jpg" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
-                <p class="albumInfos fw-bold pt-3 mb-0">Machin truc of the things</p>
-                <p class="albumInfos">Le baguette trio</p>
+                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Machin truc of the things</p>
+                <p class="albumOrMusicianInfos">Le baguette trio</p>
             </div>
             <div class="col albumCol">
-                <a href="album.html"><div class="album"></div></a>
-                <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-                <p class="albumInfos">Noms des musiciens</p>
+                <a href="albumTemplate.html"><div class="album"></div></a>
+                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+                <p class="albumOrMusicianInfos">Noms des musiciens</p>
             </div>
             <div class="col albumCol">
-                <a href="album.html"><div class="album"></div></a>
-                <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-                <p class="albumInfos">Noms des musiciens</p>
+                <a href="albumTemplate.html"><div class="album"></div></a>
+                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+                <p class="albumOrMusicianInfos">Noms des musiciens</p>
             </div>
             <div class="col albumCol">
-                <a href="album.html"><div class="album"></div></a>
-                <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-                <p class="albumInfos">Noms des musiciens</p>
+                <a href="albumTemplate.html"><div class="album"></div></a>
+                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+                <p class="albumOrMusicianInfos">Noms des musiciens</p>
             </div>
             <div class="col albumCol">
-                <a href="album.html"><div class="album"></div></a>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+                <a href="albumTemplate.html"><div class="album"></div></a>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col albumCol">
-            <a href="album.html"><div class="album"></div></a>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <a href="albumTemplate.html"><div class="album"></div></a>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col albumCol">
-            <a href="album.html"><div class="album"></div></a>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <a href="albumTemplate.html"><div class="album"></div></a>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col col-lg-3 albumCol">
             <div class="album"></div>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col col-lg-3 albumCol">
             <div class="album"></div>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col col-lg-3 albumCol">
             <div class="album"></div>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col col-lg-3 albumCol">
             <div class="album"></div>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
         <div class="col col-lg-3 albumCol">
             <div class="album"></div>
-            <p class="albumInfos fw-bold pt-3 mb-0">Nom de l'album</p>
-            <p class="albumInfos">Noms des musiciens</p>
+            <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom de l'album</p>
+            <p class="albumOrMusicianInfos">Noms des musiciens</p>
         </div>
     </div>
 

@@ -119,7 +119,7 @@ body{
     padding-top: 2em;
 }
 
-#selectOrderCollection{
+.selectOrderDisplay{
     color: #A9A5A5;
     font-weight: bold;
     font-family: perpetua;
@@ -143,7 +143,7 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-.albumInfos{
+.albumOrMusicianInfos{
     color: #A9A5A5;
     font-size: 1.25em;
 }
@@ -202,6 +202,16 @@ body{
             width: 458px;
         }
     }
+/* CSS PAGE MUSICIENS */
+    .musiciansPageTitle{
+        font-size: 3.1rem
+    }
+    @media screen and (min-width: 768px){
+        .musiciansPageTitle{
+            font-size: 3.5rem
+        }
+    }
+
 
 
 
@@ -341,7 +351,7 @@ body{
         text-decoration: none;
         color: #A1A2A7;
     }
-    #selectOrderCollection{
+    .selectOrderDisplay{
         margin-top: 95px;
         margin-bottom: 35px;
     }
@@ -359,7 +369,7 @@ body{
         margin-left: auto;
         margin-right: auto;
     }
-    .albumInfos{
+    .albumOrMusicianInfos{
         color: #A9A5A5;
         font-size: 1.3em;
     }
