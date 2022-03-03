@@ -211,15 +211,44 @@ body{
             font-size: 3.5rem
         }
     }
-
-
-
-
-
-
-
-
-
+/* CSS INSCRIPTION / CONNEXION */
+    #registrationModal{
+        display: none;
+    }
+    #loginModal{
+        display: none;
+    }
+    .modalForm{
+        background-color: #5050507e;
+        width: 90%
+    }
+    @media (min-width: 576px){
+        .modalForm{
+            width: 75%;
+        }
+    }
+    @media (min-width: 992px){
+        .modalForm{
+            width: 50%;
+        }
+    }
+    @media (min-width: 1200px){
+        .modalForm{
+            width: 40%;
+        }        
+    }
+    .registrationSubmit{
+        background-color:#898989;
+        color:#101113;
+    }
+    .closeFormModal{
+        color: #000000b2;
+    }
+    .closeFormModal:hover,
+    .closeFormModal:focus {
+      color: rgb(189, 189, 189);
+      cursor: pointer;
+    }
 
 
 /* MEDIA QUERIES : POUR PORTABLES */
