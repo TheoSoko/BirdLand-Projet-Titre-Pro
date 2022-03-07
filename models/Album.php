@@ -24,8 +24,10 @@ public function __construct()
 }
 
 public function getAllForDisplay(): array{
-    $query = 'SELECT `title`, `cover_link` AS `cover` '
-    . 'FROM ' . $this->table;
+    $query = 'SELECT `title`, `cover_link` AS `cover`, band.name AS bandName'
+    . ' FROM ' . $this->table
+    . ' JOIN `credited_band` ON `album`.`id` = `credited_band`.`id_album` '
+    . ' JOIN `band` ON `credited_band`.`id_band` = `band`.`id`';
     $queryStatement = $this->db->query($query); 
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }

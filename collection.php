@@ -63,7 +63,7 @@ include 'Controllers/AlbumsDisplayCtrl.php';
             <div class="col albumCol">
                 <a href="albumTemplate.html"><div class="album"><img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
                 <p class="albumOrMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p>
-                <p class="albumOrMusicianInfos">Noms des musiciens</p>
+                <p class="albumOrMusicianInfos"><?= $album->bandName ?></p>
             </div>
         <?php } ?>
     </div>
