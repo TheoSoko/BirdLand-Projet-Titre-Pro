@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8932c6358b.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Birdland</title>
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-costum py-4">
-        <a class="navbar-brand" href="index.html">Birdland</a>
+        <a class="navbar-brand" href="index.php">Birdland</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <li class="nav-item"> <a class="nav-link" href="collection.html" id="tst">Collection</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="articles.html">Articles</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="musicians.html">Musiciens</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="accountTransition.html">Compte</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Playlists</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Recherche</a> </li>
+            <span class="nav-item"> <a class="nav-link" href="collection.php" id="tst">Collection</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="articles.php">Articles</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="musicians.php">Musiciens</a> </span>
+            <div class="dropdown nav-item">
+                <span class="nav-link dropBtn">Compte</span>
+                <div class="dropdownContent bg-dark">
+                    <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="loginButton">Connexion</span>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="registrationButton">S'inscrire</span>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="logoutButton">Déconnexion</span>
+                </div>
+            </div>
+            <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="#">Recherche</a> </span>
         </div>
     </nav>
 
-<div class="ms-3 mt-4">
-    <button class="text-myColor btn btn-dark d-block fs-5 my-2" href="" id="loginButton">Se connecter</button>
-    <button class="text-myColor btn btn-dark d-block fs-5 my-2" href="" id="registrationButton">S'inscrire</button>
-    <a class="text-myColor text-decoration-none d-block fs-5" href="">Profil</a>
-</div>
+
 
     <!-- Formulaire d'inscription-->
-    <div class="modalForm pt-1 pb-2 my-3 rounded text-center mx-auto" id="registrationModal">
+    <div class="modalForm pt-1 pb-2 my-3 rounded text-center " id="registrationModal">
         <form action="" method="POST" id="registrationForm">
-            <div class="d-flex justify-content-end me-3"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
-            <h2 class="h1 text-myColor mb-4 pb-2">Inscription</h2>
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <h2 class="h1 text-myColor mb-4 pb-3">Inscription</h2>
             <div class="my-4">
                 <label for="userEmail" class="d-block text-myColor fs-4 my-2">Votre adresse mail : </label>
                 <input type="email" name="userEmail" id="userEmail" class="fs-5">
@@ -54,10 +59,10 @@
     </div>
 
     <!-- Formulaire de connexion-->
-    <div class="modalForm pt-1 pb-2 my-3 rounded text-center mx-auto" id="loginModal">
+    <div class="modalForm pt-1 pb-2 my-3 rounded text-center " id="loginModal">
         <form action="" method="POST" id="loginForm">
-            <div class="d-flex justify-content-end me-3"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
-            <h2 class="h1 text-myColor mb-4 pb-2">Connexion</h2>
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <h2 class="h1 text-myColor mb-4 pb-3">Connexion</h2>
             <div class="my-4">
                 <label for="username" class="d-block text-myColor fs-4 my-2">Nom d'utilisateur ou mail: </label>
                 <input type="text" name="username" id="username" class="fs-5">
@@ -70,26 +75,16 @@
         </form>
     </div>
 
+        <!-- Formulaire de Déconnexion-->
+        <div class="modalForm pt-1 pb-2 my-3 rounded text-center" id="logoutModal">
+        <form action="" method="POST" id="logoutForm">
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <h2 class="h1 text-myColor mb-4 pb-3">Êtes-vous certain de vouloir vous déconnecter?</h2>
+            <div class="pb-2"><input type="submit" class="btn btn-secondary fw-bold fs-5 my-2 px-3" value="Oui" name="logoutSubmit"></div>
+            <div class="pb-2"><input type="button" class="closeFormModal btn btn-secondary fw-bold fs-5 my-2 px-3" value="Non" id="cancelLogout"></div>
+        </form>
+    </div>
 
 
 
-<script>
-    document.addEventListener("click", action => {
-        if (event.target.matches(".closeFormModal") || !event.target.closest("#registrationModal, #loginModal") ) {
-            registrationModal.style.display = "none"
-            loginModal.style.display = "none"
-        }
-        if (event.target.matches("#registrationButton")){
-            registrationModal.style.display = "block"
-        }
-        if (event.target.matches("#loginButton")){
-            loginModal.style.display = "block"
-        }
-    })
-
-    
-</script>
-<script src="assets/bootstrap/bootstrap.bundle.js"></script>
-</body>
-
-</html>
+<script src="assets/js/accountFromNav.js"></script>
