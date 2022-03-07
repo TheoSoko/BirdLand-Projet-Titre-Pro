@@ -1,5 +1,6 @@
 <?php 
-include 'parts/header.php'
+include 'parts/header.php';
+include 'Controllers/AlbumsDisplayCtrl.php';
 ?>
 
 
@@ -56,8 +57,20 @@ include 'parts/header.php'
     </div>
 
 
+
+    <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
+        <?php foreach ($albumList as $album){ ?>
+            <div class="col albumCol">
+                <a href="albumTemplate.html"><div class="album"><img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
+                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p>
+                <p class="albumOrMusicianInfos">Noms des musiciens</p>
+            </div>
+        <?php } ?>
+    </div>
     
-    <!-- Albums -->
+
+
+    <!-- Albums 
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
         <div class="col albumCol">
             <a href="albumTemplate.php"><div class="album"><img src="assets/img/P.jpg" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
@@ -121,7 +134,7 @@ include 'parts/header.php'
         </div>
     </div>
 
-    <!-- Pré-Footer -->
+     Pré-Footer -->
     <div class="row text-center mt-5 pb-3">
         <div class="col-4">
             <img src="assets/img/left.svg" alt="Bouton page précédente" height="46px" width="46px" class="me-2 mt-2" />
