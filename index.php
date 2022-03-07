@@ -32,7 +32,7 @@ include 'parts/header.php'
             <div class="col-xl-6 col-sm-12 d-flex justify-content-center"><span class="blocCategory text-center"><a class="blocCategoryText" href="articles.php">ARTICLES</a></span></div>
         </div>
         <div class="row">
-            <div class="col-xl-6 col-sm-12 d-flex justify-content-center"><span class="blocCategory text-center"><a class="blocCategoryText" href="musicians.php">MUSICIENS</a></span></div>
+            <div class="col-xl-6 col-sm-12 d-flex justify-content-center"><span class="blocCategory text-center"><a class="blocCategoryText" href="musiciansList.php">MUSICIENS</a></span></div>
             <div class="col-xl-6 col-sm-12 d-flex justify-content-center"><span class="blocCategory text-center"><a class="blocCategoryText" href="">PLAYLISTS</a></span></div>
         </div>
         <div class="row">

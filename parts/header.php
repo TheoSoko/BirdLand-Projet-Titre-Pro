@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <span class="nav-item"> <a class="nav-link" href="collection.php" id="tst">Collection</a> </span>
             <span class="nav-item"> <a class="nav-link" href="articles.php">Articles</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="musicians.php">Musiciens</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="musiciansList.php">Musiciens</a> </span>
             <div class="dropdown nav-item">
                 <span class="nav-link dropBtn">Compte</span>
                 <div class="dropdownContent bg-dark">

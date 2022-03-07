@@ -190,6 +190,9 @@ body{
     font-size: 2.7em;
     height: 2em;
 }
+.italic{
+    font-style: italic;
+}
 
 /* CSS PAGE ARTICLES */
     @media screen and (min-width: 576px){

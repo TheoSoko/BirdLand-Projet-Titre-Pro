@@ -1,6 +1,6 @@
 <?php 
 include 'parts/header.php';
-include 'Controllers/AlbumsDisplayCtrl.php';
+include 'controllers/albumListCtrl.php';
 ?>
 
 
@@ -61,7 +61,7 @@ include 'Controllers/AlbumsDisplayCtrl.php';
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
         <?php foreach ($albumList as $album){ ?>
             <div class="col albumCol">
-                <a href="albumTemplate.html"><div class="album"><img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
+                <a href="albumTemplate.php?id=<?= $album->id ?>"><div class="album"><img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
                 <p class="albumOrMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p>
                 <p class="albumOrMusicianInfos"><?= $album->bandName ?></p>
             </div>

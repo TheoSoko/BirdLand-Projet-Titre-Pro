@@ -23,12 +23,12 @@ include 'parts/header.php'
     </div>
 
     <div class="row pt-5">
-        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="articles-blog.html">ARTICLES BLOG</a></span></div>
-        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="">PODCASTS</a></span></div>
+        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="articles-blog.php">ARTICLES BLOG</a></span></div>
+        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="articles-blog.php">PODCASTS</a></span></div>
     </div>
     <div class="row">
-        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="">INTERVIEWS</a></span></div>
-        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="">AUTRES</a></span></div>
+        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="articles-blog.php">INTERVIEWS</a></span></div>
+        <div class="col-xl-6 col-sm-12 d-flex justify-content-center text-center"><span class="blocCategory blocCategoryDark"><a class="blocCategoryTextDark" href="articles-blog.php">AUTRES</a></span></div>
     </div>
 
 </div>

@@ -1,5 +1,6 @@
 <?php 
-include 'parts/header.php'
+include 'parts/header.php';
+include 'controllers/BandsListCtrl.php';
 ?>
 
 
@@ -52,10 +53,15 @@ include 'parts/header.php'
 
         <!-- Musiciens -->
         <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
-                <div class="col albumCol mb-3">
-                <a href="musicianTemplate.html"><div class="album rounded"><img src="#" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Le baguette trio</p>
-                </div>
+
+                <?php foreach ($bandList as $band){ ?>
+                    <div class="col albumCol mb-3">
+                    <a href="musicianTemplate?id=<?=$band->id?>.html"><div class="album rounded"><img src="<?=$band->mainImage?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
+                        <p class="albumOrMusicianInfos fw-bold pt-3 mb-0"><?=$band->name?></p>
+                    </div>
+                <?php } ?>
+
+
                 <div class="col albumCol mb-3">
                     <a href="album.html"><div class="album rounded"></div></a>
                     <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
