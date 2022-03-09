@@ -153,6 +153,11 @@ body{
     color: #A9A5A5;
     font-size: 1.25em;
 }
+.musiciansInfo:hover,
+.musiciansInfo:focus {
+    cursor: pointer;
+    color:#c2c1c1;
+}
 .albumCol{
     margin-top: -39px;
 }
@@ -308,6 +313,7 @@ body{
 
 /***   ***/
 
+/* COMPTE UTILISATEUR */
 .profilePic{
     background: lightblue;
     border-radius: 50%;
@@ -347,6 +353,19 @@ body{
         padding-right: 4rem;
     }
 }
+/*   ****   */
+
+
+
+/*   Modal liens   */
+
+.modalMusicians{
+    display: none;
+}
+
+/*   ______   */
+
+
 
 
 /* MEDIA QUERIES : POUR PORTABLES */

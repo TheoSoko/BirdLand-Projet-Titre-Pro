@@ -68,19 +68,43 @@ include 'controllers/albumListCtrl.php';
                     </a>
                 </div>
                 <div class="albumName"> <a href="albumTemplate.php?id=<?= $album->id ?>" class="text-decoration-none"> <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p> </a> </div>
-                <p class="albumMusicianInfos" data-musicians="<?= $album->artist ?>"><?= strlen($album->artist) >= 34 ? substr_replace($album->artist, '...', 35) : $album->artist?></p>
+                <p class="albumMusicianInfos musiciansInfo" data-musicians="<?= $album->artist ?>"><?= strlen($album->artist) >= 34 ? substr_replace($album->artist, '...', 35) : $album->artist?></p>
+            
+                <div class="modalMusicians w-50 mx-auto" id="<?= $album->artist ?>">
+                    <ul class="list-group list-group-flush fw-bold fs-6 rounded">
+                        <?php $arrayArtists = explode(', ', $album->artist);
+                              foreach($arrayArtists as $artist) {?>
+                                <li class="list-group-item list-group-item-dark">
+                                    <form method="GET" action="controllers/albumListCtrl.php">
+                                        <input type="submit" value="<?= $artist ?>" name="artistNameSubmit">
+                                    </form>
+                                </li>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
         <?php } ?>
     </div>
     
+
+
 <script>
+    
     document.addEventListener("click", action => {
     if (event.target.matches(".albumMusicianInfos")) {
         let musicians = event.target.dataset.musicians
         musicianList = musicians.split(", ")
         console.log(musicianList)
+        if (musicianList.length > 1){
+            console.log("oui")
+            document.getElementById(musicians).style.display = "block"
+        }
     }
-})
+    })
+
+
+    
+
 </script>
 
     <!-- Albums 

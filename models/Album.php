@@ -43,7 +43,7 @@ public function getAlbumsForDisplay(): array{
 
 //Récupère les infos d'un album
 public function getAlbum(): object{
-    $query = 'SELECT `title`, `cover_link` AS `cover`, `artist`, `long_desc` AS `desc`, DATE_FORMAT(`releaseDate`, \'%d/%m/%Y\') AS `releaseDate`'
+    $query = 'SELECT ' . $this->table . '.`id`, `title`, `cover_link` AS `cover`, `artist`, `long_desc` AS `desc`, DATE_FORMAT(`releaseDate`, \'%d/%m/%Y\') AS `releaseDate`'
     .', `label`'
     . ' FROM ' . $this->table
     . ' WHERE `album`.`id` = :albumId';

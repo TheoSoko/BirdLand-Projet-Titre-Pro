@@ -5,6 +5,7 @@ class Band
 private PDO $db;
 private int $id;
 private string $table = '`band`';
+private string $name;
 
 
 
@@ -34,8 +35,22 @@ public function getBand(): object{
     return $queryStatement->fetch(PDO::FETCH_OBJ);
 }
 
+public function getIdFromName(): object{
+    $query = 'SELECT `id`'
+            . ' FROM ' . $this->table 
+            . ' WHERE `name` = :name' ;
+    $queryStatement = $this->db->prepare($query);
+    $queryStatement->bindValue(':name', $this->name, PDO::PARAM_STR);
+    $queryStatement->execute();
+    return $queryStatement->fetch(PDO::FETCH_OBJ);
+}
+
+
 public function setId($id){
     $this->id = $id;
+}
+public function setName($name){
+    $this->name = $name;
 }
 
 }
