@@ -14,7 +14,7 @@ include 'controllers/albumInfoCtrl.php'
         <div class="row">
             <div class="col text-center">
                 <p class="mt-4 mb-0 fs-1 fw-bold text-myColor"><?= $albumInfo->title ?></p>
-                <p class="mt-0 fs-2 text-myColor"></p>
+                <p class="mt-0 fs-2 text-myColor"><?= $albumInfo->artist ?></p>
             </div>
         </div>
         <div class="row mt-5">

@@ -24,4 +24,18 @@ public function getAllForDisplay(): array{
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
 
+public function getBand(): object{
+    $query = 'SELECT ' . $this->table . '.`id`, `main_image_link` AS `mainImage`, `band`.`name` AS `bandName`, `presentation`'
+    . ' FROM ' . $this->table
+    . ' WHERE `band`.`id` = :bandId';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':bandId', $this->id, PDO::PARAM_INT);
+    $queryStatement->execute();
+    return $queryStatement->fetch(PDO::FETCH_OBJ);
+}
+
+public function setId($id){
+    $this->id = $id;
+}
+
 }

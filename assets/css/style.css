@@ -1,5 +1,6 @@
 body{
     background-color: #121417;
+    /*background-color: #CECACA;*/
     font-family: perpetua;
     overflow-x: hidden;
 
@@ -143,7 +144,12 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-.albumOrMusicianInfos{
+.albumName{
+    width: 355px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.albumMusicianInfos{
     color: #A9A5A5;
     font-size: 1.25em;
 }
@@ -213,6 +219,22 @@ body{
         .musiciansPageTitle{
             font-size: 3.5rem
         }
+    }
+/* CSS PAGE BAND */
+    .bandHeader{
+        height: 500px;
+        background-color:#000000;
+    }
+    .headerMainImage{
+        background-color: rgb(181, 194, 199);
+        border-radius: 5%;
+        width: 310px;
+        height: 310px;
+        margin-left: 7.6em;
+        margin-top: 5.5em;
+    }
+    .headerText{
+        background-color:#000000;
     }
 
 
@@ -474,7 +496,10 @@ body{
         margin-left: auto;
         margin-right: auto;
     }
-    .albumOrMusicianInfos{
+    .albumName{
+        width: 270px;
+    }
+    .albumMusicianInfos{
         color: #A9A5A5;
         font-size: 1.3em;
     }

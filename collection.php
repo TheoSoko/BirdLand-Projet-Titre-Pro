@@ -57,18 +57,31 @@ include 'controllers/albumListCtrl.php';
     </div>
 
 
+    
 
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
         <?php foreach ($albumList as $album){ ?>
             <div class="col albumCol">
-                <a href="albumTemplate.php?id=<?= $album->id ?>"><div class="album"><img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg"></div></a>
-                <p class="albumOrMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p>
-                <p class="albumOrMusicianInfos"><?= $album->bandName ?></p>
+                <div class="album">
+                    <a href="albumTemplate.php?id=<?= $album->id ?>" class="album">
+                        <img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg">
+                    </a>
+                </div>
+                <div class="albumName"> <a href="albumTemplate.php?id=<?= $album->id ?>" class="text-decoration-none"> <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p> </a> </div>
+                <p class="albumMusicianInfos" data-musicians="<?= $album->artist ?>"><?= strlen($album->artist) >= 34 ? substr_replace($album->artist, '...', 35) : $album->artist?></p>
             </div>
         <?php } ?>
     </div>
     
-
+<script>
+    document.addEventListener("click", action => {
+    if (event.target.matches(".albumMusicianInfos")) {
+        let musicians = event.target.dataset.musicians
+        musicianList = musicians.split(", ")
+        console.log(musicianList)
+    }
+})
+</script>
 
     <!-- Albums 
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">

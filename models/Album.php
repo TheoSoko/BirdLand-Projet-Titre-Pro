@@ -22,27 +22,38 @@ public function __construct()
         die($error->getMessage());
     }
 }
+// Récupère tous les albums
+public function getAlbumsForDisplay(): array{
+    $query = 'SELECT ' . $this->table . '.`id`, `title`, `cover_link` AS `cover`, `artist`'
+    . ' FROM ' . $this->table;
+    $queryStatement = $this->db->query($query); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
 
-public function getAllForDisplay(): array{
-    $query = 'SELECT ' . $this->table . '.`id`, `title`, `cover_link` AS `cover`, band.name AS bandName'
+// Récupère les noms des artistes crédités principalements dans l'album
+    /* public function getBandNames(): array{
+    $query = 'SELECT band.name AS bandName'
     . ' FROM ' . $this->table
     . ' JOIN `credited_band` ON `album`.`id` = `credited_band`.`id_album` '
     . ' JOIN `band` ON `credited_band`.`id_band` = `band`.`id`';
     $queryStatement = $this->db->query($query); 
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
-}
+} */
+
+
+//Récupère les infos d'un album
 public function getAlbum(): object{
-    $query = 'SELECT `title`, `cover_link` AS `cover`, band.name AS bandName, `long_desc` AS `desc`, DATE_FORMAT(`releaseDate`, \'%d/%m/%Y\') AS `releaseDate`'
+    $query = 'SELECT `title`, `cover_link` AS `cover`, `artist`, `long_desc` AS `desc`, DATE_FORMAT(`releaseDate`, \'%d/%m/%Y\') AS `releaseDate`'
     .', `label`'
     . ' FROM ' . $this->table
-    . ' JOIN `credited_band` ON `album`.`id` = `credited_band`.`id_album` '
-    . ' JOIN `band` ON `credited_band`.`id_band` = `band`.`id`'
     . ' WHERE `album`.`id` = :albumId';
     $queryStatement = $this->db->prepare($query); 
     $queryStatement->bindValue(':albumId', $this->id, PDO::PARAM_INT);
     $queryStatement->execute();
     return $queryStatement->fetch(PDO::FETCH_OBJ);
 }
+
+//Récupère les pistes d'un album
 public function getAlbumTracks(): array{
     $query = 'SELECT `album_track`.`title` AS `trackTitle`, `duration`, `track_order` AS `trackOrder`'
     . ' FROM ' . $this->table
@@ -53,6 +64,8 @@ public function getAlbumTracks(): array{
     $queryStatement->execute();
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
+
+//Récupère les musiciens crédités dans l'album
 public function getCreditedMusicians(): array{
     $query = 'SELECT `musician`.`name` AS `musicianName`, `credited_musician`.`instrument` AS `instrument`'
     . ' FROM ' . $this->table
