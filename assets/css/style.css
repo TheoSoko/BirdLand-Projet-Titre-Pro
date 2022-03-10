@@ -158,6 +158,13 @@ body{
     cursor: pointer;
     color:#c2c1c1;
 }
+.musiciansInfoModalText:hover,
+.musiciansInfoModalText:hover {
+    cursor: pointer;
+    color:#cacaca;
+}
+
+
 .albumCol{
     margin-top: -39px;
 }
@@ -225,6 +232,11 @@ body{
             font-size: 3.5rem
         }
     }
+/* CSS DISPLAY LISTE MUSICIENS */
+    .musiciansDisplayImg{
+        border-radius: 0.5rem;
+}
+
 /* CSS PAGE BAND */
 @media (max-width: 576px){
     .headerMainImage{
@@ -393,12 +405,28 @@ body{
 
 
 
-/*   Modal liens   */
+/*   Modal liens Collection   */
 
 .modalMusicians{
     display: none;
+    /*position: relative;
+    top: -4rem;
+    z-index: 1;
+    margin-bottom: -8.3rem;
+    padding-bottom: -8.3rem;
+    */
 }
-
+.modalMusiciansList{
+    list-style-type: none;
+}
+.modalMusiciansListItem{
+    display: inline;
+}
+.modalMusiciansInput{
+    background-color: transparent;
+    border: none;
+    color: #A9A5A5;
+}
 /*   ______   */
 
 

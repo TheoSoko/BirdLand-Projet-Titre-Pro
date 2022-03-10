@@ -40,7 +40,7 @@
     <!-- Formulaire d'inscription-->
     <div class="modalForm pt-1 pb-2 my-3 rounded text-center " id="registrationModal">
         <form action="" method="POST" id="registrationForm">
-            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Inscription</h2>
             <div class="my-4">
                 <label for="userEmail" class="d-block text-myColor fs-4 my-2">Votre adresse mail : </label>
@@ -61,7 +61,7 @@
     <!-- Formulaire de connexion-->
     <div class="modalForm pt-1 pb-2 my-3 rounded text-center " id="loginModal">
         <form action="" method="POST" id="loginForm">
-            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Connexion</h2>
             <div class="my-4">
                 <label for="username" class="d-block text-myColor fs-4 my-2">Nom d'utilisateur ou mail: </label>
@@ -78,10 +78,10 @@
         <!-- Formulaire de Déconnexion-->
         <div class="modalForm pt-1 pb-2 my-3 rounded text-center" id="logoutModal">
         <form action="" method="POST" id="logoutForm">
-            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="closeFormModal fs-1 fw-bold">&times;</span></div>
+            <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Êtes-vous certain de vouloir vous déconnecter?</h2>
             <div class="pb-2"><input type="submit" class="btn btn-secondary fw-bold fs-5 my-2 px-3" value="Oui" name="logoutSubmit"></div>
-            <div class="pb-2"><input type="button" class="closeFormModal btn btn-secondary fw-bold fs-5 my-2 px-3" value="Non" id="cancelLogout"></div>
+            <div class="pb-2"><input type="button" class="js-close-form closeFormModal btn btn-secondary fw-bold fs-5 my-2 px-3" value="Non" id="cancelLogout"></div>
         </form>
     </div>
 

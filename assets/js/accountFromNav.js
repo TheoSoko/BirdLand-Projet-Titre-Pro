@@ -1,5 +1,5 @@
 document.addEventListener("click", action => {
-    if (event.target.matches(".closeFormModal") || !event.target.closest("#registrationModal, #loginModal, #logoutModal") ) {
+    if (event.target.matches(".js-close-form") || !event.target.closest("#registrationModal, #loginModal, #logoutModal") ) {
         registrationModal.style.display = "none"
         loginModal.style.display = "none"
         logoutModal.style.display = "none"

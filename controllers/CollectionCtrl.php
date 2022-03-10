@@ -11,15 +11,24 @@ if (!isset($_GET['artistNameSubmit'])){
 
 $album = new Album;
 $albumList = $album->getAlbumsForDisplay();
-foreach ($albumList as $album){
+ foreach ($albumList as $album){
     $arrayArtists = 'arrayArtists' . $album->id;
     $$arrayArtists = explode(', ', $album->artist);
-    //$album->artist = explode(', ', $album->artist);
+
+    $arrayLenght = count($$arrayArtists);
+    foreach ($$arrayArtists as $key => $artist){
+        if ($key + 1 < $arrayLenght){
+            $$arrayArtists[$key] = $artist . ',';
+        }
+    }
 }
+
+
 
 if (isset($_GET['artistNameSubmit'])){
     $band = new Band;
-    $bandName = $_GET['artistNameSubmit'];
+    $bandName = str_replace(',', '', $_GET['artistNameSubmit']);
+
     $band->setName($bandName);
     $bandId = $band->getIdFromName();
     if (!empty($bandId)){

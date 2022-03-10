@@ -1,6 +1,6 @@
 <?php 
 include 'parts/header.php';
-include 'controllers/albumListCtrl.php';
+include 'controllers/collectionCtrl.php';
 ?>
 
 
@@ -68,15 +68,24 @@ include 'controllers/albumListCtrl.php';
                     </a>
                 </div>
                 <div class="albumName"> <a href="albumTemplate.php?id=<?= $album->id ?>" class="text-decoration-none"> <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p> </a> </div>
-                <p class="albumMusicianInfos musiciansInfo" data-musicians="<?= $album->artist ?>"><?= strlen($album->artist) >= 34 ? substr_replace($album->artist, '...', 35) : $album->artist?></p>
-            
-                <div class="modalMusicians w-50 mx-auto" id="<?= $album->artist ?>">
-                    <ul class="list-group list-group-flush fw-bold fs-6 rounded">
-                        <?php $arrayArtists = explode(', ', $album->artist);
-                              foreach($arrayArtists as $artist) {?>
-                                <li class="list-group-item list-group-item-dark">
-                                    <form method="GET" action="controllers/albumListCtrl.php">
-                                        <input type="submit" value="<?= $artist ?>" name="artistNameSubmit">
+
+                <?php if (strlen($album->artist) >= 34) { ?>
+                    <p class="albumMusicianInfos musiciansInfo js-musicians-info" data-musicians="<?= $album->artist ?>"> <?= substr_replace($album->artist, '...', 35) ?> </p>
+                <?php }else {?>
+                    <form class="modalMusiciansListItem px-0" method="GET" action="controllers/collectionCtrl.php">
+                        <input type="submit" value="<?= $album->artist ?>" name="artistNameSubmit" class="modalMusiciansInput albumMusicianInfos musiciansInfoModalText px-0">
+                    </form>
+                <?php } ?>
+
+                <!-- MODAL -->
+                <div class="modalMusicians mx-auto" id="<?= $album->artist ?>">
+                    <ul class="modalMusiciansList fw-bold rounded">
+                        <?php 
+                              $array = 'arrayArtists';
+                              foreach(${$array . $album->id} as $artist) {?>
+                                <li class="modalMusiciansListItem">
+                                    <form class="modalMusiciansListItem px-0" method="GET" action="controllers/collectionCtrl.php">
+                                        <input type="submit" value="<?= $artist ?>" name="artistNameSubmit" class="modalMusiciansInput albumMusicianInfos musiciansInfoModalText px-0">
                                     </form>
                                 </li>
                         <?php } ?>
@@ -88,24 +97,7 @@ include 'controllers/albumListCtrl.php';
     
 
 
-<script>
-    
-    document.addEventListener("click", action => {
-    if (event.target.matches(".albumMusicianInfos")) {
-        let musicians = event.target.dataset.musicians
-        musicianList = musicians.split(", ")
-        console.log(musicianList)
-        if (musicianList.length > 1){
-            console.log("oui")
-            document.getElementById(musicians).style.display = "block"
-        }
-    }
-    })
 
-
-    
-
-</script>
 
     <!-- Albums 
     <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
@@ -188,5 +180,6 @@ include 'controllers/albumListCtrl.php';
 
 
 <script src="assets/bootstrap/bootstrap.bundle.js"></script>
+<script src="./assets/js/collection.js"></script>
 </body>
 </html>
