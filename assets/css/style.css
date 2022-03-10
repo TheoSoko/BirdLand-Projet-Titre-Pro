@@ -226,6 +226,40 @@ body{
         }
     }
 /* CSS PAGE BAND */
+@media (max-width: 576px){
+    .headerMainImage{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (min-width: 576px){
+    .bandHeader{
+        height: 530px;
+        background-color:#000000;
+    }
+    .headerMainImage{
+        background-color: rgb(181, 194, 199);
+        border-radius: 5%;
+        width: 300px;
+        height: 300px;
+        margin-top: 5.5em;
+    }
+}
+    @media (min-width: 992px){
+    .bandHeader{
+        height: 520px;
+        background-color:#000000;
+    }
+    .headerMainImage{
+        background-color: rgb(181, 194, 199);
+        border-radius: 5%;
+        width: 300px;
+        height: 300px;
+        margin-left: 4.5rem;
+        margin-top: 6.5em;
+    }
+}
+    @media (min-width: 1301px){
     .bandHeader{
         height: 500px;
         background-color:#000000;
@@ -241,6 +275,8 @@ body{
     .headerText{
         background-color:#000000;
     }
+}
+
 
 
 /* CSS INSCRIPTION / CONNEXION */

@@ -22,7 +22,13 @@ if (isset($_GET['artistNameSubmit'])){
     $bandName = $_GET['artistNameSubmit'];
     $band->setName($bandName);
     $bandId = $band->getIdFromName();
-    header('Location: ../musicianTemplate.php?id=' . $bandId->id);
+    if (!empty($bandId)){
+        header('Location: ../musicianTemplate.php?id=' . $bandId);
+        exit;
+    } else{
+        header('Location: ../collection.php');
+        exit;
+    }
 }
 
 

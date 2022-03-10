@@ -35,14 +35,14 @@ public function getBand(): object{
     return $queryStatement->fetch(PDO::FETCH_OBJ);
 }
 
-public function getIdFromName(): object{
+public function getIdFromName(){
     $query = 'SELECT `id`'
             . ' FROM ' . $this->table 
             . ' WHERE `name` = :name' ;
     $queryStatement = $this->db->prepare($query);
     $queryStatement->bindValue(':name', $this->name, PDO::PARAM_STR);
     $queryStatement->execute();
-    return $queryStatement->fetch(PDO::FETCH_OBJ);
+    return $queryStatement->fetchColumn();
 }
 
 
