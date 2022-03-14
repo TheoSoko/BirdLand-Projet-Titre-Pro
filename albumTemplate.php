@@ -4,7 +4,6 @@ include 'controllers/albumInfoCtrl.php'
 ?>
 
 
-
     <div class="container mt-md-4">
         <div class="row">
             <div class="col">
