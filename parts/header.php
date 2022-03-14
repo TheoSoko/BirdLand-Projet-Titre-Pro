@@ -25,9 +25,10 @@
                 <span class="nav-link dropBtn">Compte</span>
                 <div class="dropdownContent bg-dark">
                     <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="loginButton">Connexion</span>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="registrationButton">S'inscrire</span>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="" id="logoutButton">Déconnexion</span>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="loginButton">Connexion</span>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="registrationButton">S'inscrire</span>
+                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
+                    <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
                 </div>
             </div>
             <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>

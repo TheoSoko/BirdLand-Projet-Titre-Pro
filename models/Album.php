@@ -10,6 +10,7 @@ private string $releaseDate;
 private string $shortDesc;
 private string $longDesc;
 private string $coverLink;
+private string $search;
 
 
 
@@ -78,7 +79,16 @@ public function getCreditedMusicians(): array{
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
 
-
+//Récupère les infos d'un album
+public function getSearchedAlbums(): array{
+    $query = 'SELECT ' . $this->table . '.`id`, `title`, `cover_link` AS `cover`, `artist`'
+    . ' FROM ' . $this->table
+    . ' WHERE `title` LIKE :title';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':title', '%'. $this->search . '%', PDO::PARAM_STR);
+    $queryStatement->execute(); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
 
 
 
@@ -86,7 +96,12 @@ public function getCreditedMusicians(): array{
 public function setId($id){
     $this->id = $id;
 }
-
+public function setSearch($search){
+    $this->search = $search;
+}
+public function setTracks($tracks){
+    $this->tracks = $tracks;
+}
 
 
 

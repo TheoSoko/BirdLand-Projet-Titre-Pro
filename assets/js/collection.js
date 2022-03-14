@@ -8,5 +8,12 @@ document.addEventListener("click", action => {
             document.getElementById(musicians).style.display = "block"
             event.target.style.display = "none"
         }
+        let previousEventTarget = event.target
+        document.addEventListener("click", action => {
+            if (event.target != previousEventTarget){
+                document.getElementById(musicians).style.display = "none"
+                previousEventTarget.style.display = "block"
+            }
+        })
     }
-    })
+})

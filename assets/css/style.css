@@ -429,7 +429,26 @@ body{
 }
 /*   ______   */
 
-
+@media screen and (max-width: 576px){
+    .imageColSize{
+        width: 60%
+    }
+}
+@media screen and (min-width: 576px){
+    .imageColSize{
+        width: 40%
+    }
+}
+@media screen and (min-width: 900px){
+    .imageColSize{
+        width: 30%
+    }
+}
+@media screen and (min-width: 1200px){
+    .imageColSize{
+        width: 17%
+    }
+}
 
 
 /* MEDIA QUERIES : POUR PORTABLES */
