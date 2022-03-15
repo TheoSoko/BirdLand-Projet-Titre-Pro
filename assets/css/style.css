@@ -160,8 +160,8 @@ body{
     cursor: pointer;
     color:#c2c1c1;
 }
-.musiciansInfoModalText:hover,
-.musiciansInfoModalText:hover {
+.musiciansInfoInput:hover,
+.musiciansInfoInput:hover {
     cursor: pointer;
     color:#cacaca;
 }

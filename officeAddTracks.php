@@ -138,10 +138,12 @@ include 'controllers/officeAddTracksCtrl.php'
 
             let trackDurationCell = document.createElement('td')
             let trackDuration = document.createElement('input')
-            trackDuration.type = "time"
+            //trackDuration.type = "time"
+            trackDuration.type = "text"
             trackDuration.name = "trackDuration" + increment
-            trackDuration.step = "1"
-            trackDuration.max = "6:00:00"
+            //trackDuration.step = "1"
+            //trackDuration.max = "06:00:00"
+            trackDuration.maxLength = "8"
             trackDuration.value = "00:05:30"
             trackDurationCell.append(trackDuration)
 
@@ -149,6 +151,8 @@ include 'controllers/officeAddTracksCtrl.php'
             let trackOrder = document.createElement('input')
             trackOrder.type = "text"
             trackOrder.name = "trackOrder" + increment
+            trackOrder.maxLength = "4"
+            trackOrder.value = increment
             trackOrderCell.append(trackOrder)
             
             row.append(trackTitleCell)

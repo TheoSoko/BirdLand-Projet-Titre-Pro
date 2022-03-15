@@ -1,6 +1,6 @@
 <?php 
 include 'parts/header.php';
-include 'controllers/albumInfoCtrl.php'
+include 'controllers/albumTemplateCtrl.php'
 ?>
 
 
@@ -13,12 +13,19 @@ include 'controllers/albumInfoCtrl.php'
         <div class="row">
             <div class="col text-center">
                 <p class="mt-4 mb-0 fs-1 fw-bold text-myColor"><?= $albumInfo->title ?></p>
-                <p class="mt-0 fs-2 text-myColor"><?= $albumInfo->artist ?></p>
+                <?php 
+                    foreach($arrayArtists as $artist) {?>
+                    <li class="modalMusiciansListItem">
+                        <form class="modalMusiciansListItem px-0" method="GET">
+                            <input type="button" value="<?= $artist ?> " name="artistNameSubmit" class="modalMusiciansInput px-0 musiciansInfoInput fs-2 text-myColor">
+                        </form>
+                    </li>
+                <?php } ?>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col text-start ms-2">
-                <p class="mt-4 mb-0 fs-3 text-myColor"><span class="fw-bold">Année de sortie :</span> <?= $yearOfRelease[2]?></p>
+                <p class="mt-4 mb-0 fs-3 text-myColor"><span class="fw-bold">Année de sortie :</span> <?= $yearOfRelease?></p>
                 <p class="mt-0 fs-3 text-myColor"><span class="fw-bold">Genre : </span> Jazz moderne</p>
             </div>
         </div>
@@ -64,6 +71,7 @@ include 'controllers/albumInfoCtrl.php'
 
     
 
-    <script src="assets/bootstrap/bootstrap.bundle.js"></script>
+    <script src="assets/js/redirectToMusician.js"></script>
+    
 </body>
 </html>

@@ -22,11 +22,13 @@ if (isset($_POST['addTracksSubmit'])){
     for ($i = 1; $i <= $numberOfTracks; $i++){
         $tracksArray[] = [ $_POST['trackTitle'. $i], $_POST['trackDuration'. $i], $_POST['trackOrder'. $i] ];
     }
+    /*
     foreach ($tracksArray as $key => $track){
         if (substr($track[1], 0, 2) == 00 ){
             $tracksArray[$key] [1] = substr_replace($track[1], '', 0, 3);
         }
     }
+    */
 
     $tracksObj = new Tracks;
     foreach($tracksArray as $track){

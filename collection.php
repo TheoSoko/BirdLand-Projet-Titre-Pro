@@ -72,8 +72,8 @@ include 'controllers/collectionCtrl.php';
                 <?php if (strlen($album->artist) >= 34) { ?>
                     <p class="albumMusicianInfos musiciansInfo js-musicians-info" data-musicians="<?= $album->artist ?>"> <?= substr_replace($album->artist, '...', 35) ?> </p>
                 <?php }else {?>
-                    <form class="modalMusiciansListItem px-0" method="GET" action="controllers/collectionCtrl.php">
-                        <input type="submit" value="<?= $album->artist ?>" name="artistNameSubmit" class="modalMusiciansInput albumMusicianInfos musiciansInfoModalText px-0">
+                    <form class="modalMusiciansListItem px-0">
+                        <input type="button" value="<?= $album->artist ?>" name="artistNameSubmit" class="musiciansInfoInput modalMusiciansInput albumMusicianInfos px-0">
                     </form>
                 <?php } ?>
 
@@ -81,11 +81,13 @@ include 'controllers/collectionCtrl.php';
                 <div class="modalMusicians mx-auto" id="<?= $album->artist ?>">
                     <ul class="modalMusiciansList fw-bold rounded pe-4">
                         <?php 
+                            //${$array . $album->id} = "arrayArtist1" ou "arrayArtist2" etc.
+                            // Pour chaque entrée du tableau, je fais un form avec un input. 
                               $array = 'arrayArtists';
                               foreach(${$array . $album->id} as $artist) {?>
                                 <li class="modalMusiciansListItem">
-                                    <form class="modalMusiciansListItem px-0" method="GET" action="controllers/collectionCtrl.php">
-                                        <input type="submit" value="<?= $artist ?>" name="artistNameSubmit" class="modalMusiciansInput albumMusicianInfos musiciansInfoModalText px-0">
+                                    <form class="modalMusiciansListItem px-0">
+                                        <input type="button" value="<?= $artist ?>" name="artistNameSubmit" class="musiciansInfoInput modalMusiciansInput albumMusicianInfos px-0">
                                     </form>
                                 </li>
                         <?php } ?>
@@ -178,8 +180,7 @@ include 'controllers/collectionCtrl.php';
 
 </div>
 
-
-<script src="assets/bootstrap/bootstrap.bundle.js"></script>
+<script src="./assets/js/redirectToMusician.js"></script>
 <script src="./assets/js/collection.js"></script>
 </body>
 </html>
