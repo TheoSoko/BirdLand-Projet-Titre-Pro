@@ -44,15 +44,15 @@ include 'controllers/collectionCtrl.php';
 
     <!-- Disposition et navigation-->
     <div class="row text-center mt-4 collectionChangePage">
-        <div class="col-4">
-            <img src="assets/img/left.svg" alt="Bouton page précédente" height="46px" width="46px" class="me-2" />
+        <div class="col-sm-4 col-3 mx-auto">
+            <img src="assets/img/left.svg" alt="Bouton page précédente" height="46px" width="46px" class="me-sm-2" />
         </div>
-        <div class="col-4">
+        <div class="col-sm-4 col-5 mx-auto">
             <img src="assets/img/oneElementDisplay.svg" alt="Bouton page précédente" height="46px" width="46px" class="me-1"/>
             <img src="assets/img/twoElementsDisplay.svg" alt="Bouton page précédente" height="46px" width="46px" class="ms-1"/>
         </div>
-        <div class="col-4">
-            <img src="assets/img/right.svg" alt="Bouton page suivante" height="46px" width="46px" class="ms-2" />
+        <div class="col-sm-4 col-3 mx-auto">
+            <img src="assets/img/right.svg" alt="Bouton page suivante" height="46px" width="46px" class="ms-sm-2" />
         </div>
     </div>
 
@@ -64,7 +64,7 @@ include 'controllers/collectionCtrl.php';
             <div class="col albumCol">
                 <div class="album">
                     <a href="albumTemplate.php?id=<?= $album->id ?>" class="album">
-                        <img src="<?= $album->cover ?>" height="355px" width="355px" alt="" class="albumCollectionImg">
+                        <img src="<?= $album->cover ?>" height="auto" width="99%" alt="" class="albumCollectionImg">
                     </a>
                 </div>
                 <div class="albumName"> <a href="albumTemplate.php?id=<?= $album->id ?>" class="text-decoration-none"> <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?= $album->title ?></p> </a> </div>
@@ -79,7 +79,7 @@ include 'controllers/collectionCtrl.php';
 
                 <!-- MODAL -->
                 <div class="modalMusicians mx-auto" id="<?= $album->artist ?>">
-                    <ul class="modalMusiciansList fw-bold rounded">
+                    <ul class="modalMusiciansList fw-bold rounded pe-4">
                         <?php 
                               $array = 'arrayArtists';
                               foreach(${$array . $album->id} as $artist) {?>

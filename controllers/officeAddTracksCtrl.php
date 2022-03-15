@@ -15,11 +15,17 @@ if (isset($_GET['selectedAlbum'])){
     $album = $albumObj->getAlbum();
 }
 
+//Après validation du dernier formulaire
 if (isset($_POST['addTracksSubmit'])){
     $numberOfTracks = intval(htmlspecialChars($_POST['countEntries']));
     $tracksArray = [];
     for ($i = 1; $i <= $numberOfTracks; $i++){
         $tracksArray[] = [ $_POST['trackTitle'. $i], $_POST['trackDuration'. $i], $_POST['trackOrder'. $i] ];
+    }
+    foreach ($tracksArray as $key => $track){
+        if (substr($track[1], 0, 2) == 00 ){
+            $tracksArray[$key] [1] = substr_replace($track[1], '', 0, 3);
+        }
     }
 
     $tracksObj = new Tracks;

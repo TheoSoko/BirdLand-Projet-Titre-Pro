@@ -139,10 +139,12 @@ body{
 .album, .albumLone{
     width: 355px;
     height: 355px;
-    background-color: #898989;
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
+}
+.albumCol{
+    height: 507px;
 }
 .albumName{
     width: 355px;
@@ -164,10 +166,6 @@ body{
     color:#cacaca;
 }
 
-
-.albumCol{
-    margin-top: -39px;
-}
 
 .articlesPresentation{
     width: 385px;
@@ -452,7 +450,16 @@ body{
 
 
 /* MEDIA QUERIES : POUR PORTABLES */
-@media screen and (max-width: 576px){
+@media (max-width: 370px){
+    .album, .albumLone{
+        width: 95%;
+        height: auto;
+    }
+}
+
+
+
+@media (max-width: 576px){
     #h1mainTitleIndex{
         background-color: #A1A2A7;
         color: #3C3B3B;
@@ -515,7 +522,7 @@ body{
 }
 
 
-@media screen and (min-width: 576px){
+@media (min-width: 576px){
     .presentation{
         margin-top: 4em;
         width: 500px;
@@ -541,7 +548,17 @@ body{
         width: 9.1em;
     }
 }
-@media screen and (min-width: 900px){
+
+@media (min-width: 768px){
+    .albumCol{
+        height: 472px;
+    }
+    .album{
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 900px){
     .presentation{
         width: 650px;
     }
@@ -558,7 +575,7 @@ body{
     }
 }
 
-@media screen and (min-width: 1200px){
+@media (min-width: 1200px){
     #h1mainTitleCollection{
         margin-top: 85px;
     }
@@ -587,13 +604,9 @@ body{
     .albumsRow{
         margin-bottom: 65px;
     }
-    .albumCol{
-        margin-top: auto;
-    }
     .album{
         width: 310px;
         height: 310px;
-        background-color: #898989;
         margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
@@ -635,4 +648,18 @@ body{
         width: 310px;
         height: 310px;
     }
+    .albumCol{
+        height: auto;
+        margin-top: auto;
+    }
 }
+
+
+
+
+
+
+
+
+
+

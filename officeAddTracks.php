@@ -72,9 +72,11 @@ include 'controllers/officeAddTracksCtrl.php'
         <input type="hidden" name="countEntries" id="countEntries">
     </form>
 
-    <div class="text-myColor fs-5 text-center mt-5 pt-4 mb-5">
-        <p>Les pistes ont bien été ajoutés à la base de données. Merci!</p>
-    </div>
+    <?php if (isset($result) && $result){ ?>
+        <div class="text-myColor fs-4 text-center mt-5 pt-4 mb-5">
+            <p>Les pistes ont bien été ajoutés à la base de données. Merci!</p>
+        </div>
+    <?php } ?>
 
     <div class="text-myColor fs-5 text-center mt-5 pt-4 mb-5" id="helpText">
         <p>Pour la durée des pistes, utilisez <u>les flèches ou les chiffres de votre clavier</u>, les valeurs sont : <span class="fw-bold">"hh:mm:ss"</span> ou <span class="fw-bold">"heures : minutes : secondes"</span>.</p>
@@ -130,6 +132,7 @@ include 'controllers/officeAddTracksCtrl.php'
             let trackTitleCell = document.createElement('td')
             let trackTitle = document.createElement('input')
             trackTitle.type = "text"
+            trackTitle.required = "true"
             trackTitle.name = "trackTitle" + increment
             trackTitleCell.append(trackTitle)
 
@@ -140,7 +143,6 @@ include 'controllers/officeAddTracksCtrl.php'
             trackDuration.step = "1"
             trackDuration.max = "6:00:00"
             trackDuration.value = "00:05:30"
-            trackDuration.required = "true"
             trackDurationCell.append(trackDuration)
 
             let trackOrderCell = document.createElement('td')
@@ -155,7 +157,7 @@ include 'controllers/officeAddTracksCtrl.php'
             
             //
 
-            countForData.value = increment
+            countEntries.value = increment
             countBtn.innerText = increment
             window.scrollTo(0, document.body.scrollHeight);
         }
@@ -163,6 +165,7 @@ include 'controllers/officeAddTracksCtrl.php'
             tableBody.lastElementChild.remove()
             increment --
             countBtn.innerText = increment
+            countEntries.value = increment
         }
     })
 
