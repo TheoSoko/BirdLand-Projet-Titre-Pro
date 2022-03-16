@@ -93,13 +93,13 @@ public function getSearchedAlbums(): array{
 
 
 
-public function setId($id){
+public function setId(int $id){
     $this->id = $id;
 }
-public function setSearch($search){
+public function setSearch(string $search){
     $this->search = $search;
 }
-public function setTracks($tracks){
+public function setTracks(string $tracks){
     $this->tracks = $tracks;
 }
 

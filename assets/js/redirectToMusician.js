@@ -1,9 +1,9 @@
 document.addEventListener("click", action => {
     if (event.target.matches("[name=artistNameSubmit]")){
         artistName = event.target.value
-        
+
         let xhr = new XMLHttpRequest()
-        xhr.open("GET", "controllers/RedirectToMusicianAjaxCtrl.php", true)
+        xhr.open("POST", "controllers/RedirectToMusicianAjaxCtrl.php", true)
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
         xhr.send("artistName=" + artistName)
         xhr.onreadystatechange = function () {
@@ -17,5 +17,7 @@ document.addEventListener("click", action => {
                 }
             }
         }
+
+
     }
 })

@@ -1,3 +1,7 @@
+<?php 
+include 'controllers/registerCtrl.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -44,16 +48,16 @@
             <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Inscription</h2>
             <div class="my-4">
-                <label for="userEmail" class="d-block text-myColor fs-4 my-2">Votre adresse mail : </label>
-                <input type="email" name="userEmail" id="userEmail" class="fs-5">
+                <label for="email" class="d-block text-myColor fs-4 my-2">Votre adresse mail : </label>
+                <input type="email" name="email" id="email" class="fs-5">
             </div>
             <div class="my-4">
                 <label for="username" class="d-block text-myColor fs-4 my-2">Votre nom d'utilisateur : </label>
                 <input type="text" name="username" id="username" class="fs-5">
             </div>
             <div class="my-4">
-                <label for="userPassword" class="d-block text-myColor fs-4 my-2">Votre mot de passe : </label>
-                <input type="password" name="userPassword" id="userPassword" class="fs-5">
+                <label for="password" class="d-block text-myColor fs-4 my-2">Votre mot de passe : </label>
+                <input type="password" name="password" id="password" class="fs-5">
             </div>
             <div class="pb-2"><input type="submit" class="registrationSubmit btn btn-secondary fw-bold fs-5 my-4" value="Valider l'inscription" name="registrationSubmit"></div>
         </form>
@@ -69,8 +73,8 @@
                 <input type="text" name="username" id="username" class="fs-5">
             </div>
             <div class="my-4">
-                <label for="userPassword" class="d-block text-myColor fs-4 my-2">Mot de passe : </label>
-                <input type="password" name="userPassword" id="userPassword" class="fs-5">
+                <label for="password" class="d-block text-myColor fs-4 my-2">Mot de passe : </label>
+                <input type="password" name="password" id="password" class="fs-5">
             </div>
             <div class="pb-2"><input type="submit" class="loginSubmit btn btn-secondary fw-bold fs-5 my-4" value="Se connecter" name="loginSubmit"></div>
         </form>
