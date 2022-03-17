@@ -6,7 +6,7 @@ private string $email;
 private string $username;
 private string $password;
 private string $passwordHash;
-private array $errorList;
+private array $errorList = [];
 
 private bool $checkedEmail;
 private bool $checkedUsername;
@@ -51,7 +51,6 @@ public function checkEmail():void{
         $this->checkedEmail = false;
     } else {
         $this->checkedEmail = true;
-        $this->errorList = [];
     }
 }
 
@@ -65,7 +64,6 @@ public function checkUsername():void{
         $this->checkedUsername = false;
     } else {
         $this->checkedUsername = true;
-        $this->errorList = [];
     }
 }
 
@@ -83,7 +81,6 @@ public function checkPassword():void{
     } else {
         $this->checkedPassword = true;
         $this->passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
-        $this->errorList = [];
     }
 }
 

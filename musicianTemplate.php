@@ -29,6 +29,5 @@ include 'controllers/musicianInfoCtrl.php';
 
 
 
-<script src="assets/bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>

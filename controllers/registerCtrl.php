@@ -17,17 +17,20 @@ if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) 
 
     if ($data === false){
         $errorList = $checkData->getErrorList();
+        //var_dump($errorList);
         //Ajax response
         echo(json_encode($errorList));
     } else {
-        var_dump($data);
+        //var_dump($data);
         $user = new User;
         $user->setUsername($data['username']);
         $user->setEmail($data['email']);
         $user->setPassword($data['passwordHash']);
 
         if ($user->checkIfUserExists()){
-            $errorList = ['existingUser'];
+            $errorList = [];
+            $errorList['existingUser'] = 'Cet utilisateur existe deja';
+            //var_dump($errorList);
             //Ajax response
             echo(json_encode($errorList));
         } else {
