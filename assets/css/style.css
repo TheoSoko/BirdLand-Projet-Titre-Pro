@@ -320,10 +320,10 @@ body{
     /*   */
     /* Formulaires */
     .modalForm{
-        background-color: #353638fa;
+        background-color: #353638fd;
         width: 90%;
         position: fixed;
-        top: 20%;
+        top: 14%;
         left: 50%;
         z-index: 1;
         margin-left: -312px; /* Moitié de la largeur, pour centrer. */

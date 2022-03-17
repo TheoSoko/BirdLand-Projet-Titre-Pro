@@ -19,6 +19,26 @@ Class User{
     }
 
 
+    public function registerNewUser(): bool{
+        $query = 'INSERT INTO ' . $this->table
+                . ' (`username`, `email`, `password`) VALUES (:username, :email, :password)';
+        $querystatement = $this->db->prepare($query);
+        $querystatement->bindValue(':username', $this->username, PDO::PARAM_STR);
+        $querystatement->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $querystatement->bindValue(':password', $this->password, PDO::PARAM_STR);
+        return $querystatement->execute();
+    }
+    public function checkIfUserExists():bool{
+        $query = 'SELECT COUNT(1) FROM ' . $this->table
+                . ' WHERE `email` = :email OR `username` = :username';
+        $querystatement = $this->db->prepare($query);
+        $querystatement->bindValue(':username', $this->username, PDO::PARAM_STR);
+        $querystatement->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $querystatement->execute();
+        return $querystatement->fetchColumn();
+    }
+
+
 
     //SETTERS
     public function setId(int $id):void{ 

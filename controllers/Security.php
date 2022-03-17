@@ -19,12 +19,14 @@ private string $regexPassword = '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&µ£\/\\~
 
 
 //Retourne les données si tous les attributs checked sont true
-public function getCheckedData():array{
-    if ($this->checkedEmail = true && $this->checkedUsername = true && $this->checkedPassword = true){
-        $checkedData = [];
-        array_push($checkedData, $this->email, $this->username, $this->password);
-        return $checkedData;
+public function getCheckedData(){
+    if ($this->checkedEmail === true && $this->checkedUsername === true && $this->checkedPassword === true){
+        $checkedData = ['username' => $this->username, 'email' => $this->email, 'passwordHash' => $this->passwordHash];
+        //array_push($checkedData, $this->email, $this->username, $this->passwordHash);
+    } else {
+        $checkedData = false;
     }
+    return $checkedData;
 }
 //Retourne le tableau d'erreurs
 public function getErrorList():array{
@@ -80,6 +82,7 @@ public function checkPassword():void{
         $this->errorList['invalidPassword'] = 'Le mot de passe doit contenir au moins une lettre, un chiffre, et un caractère spécial';
     } else {
         $this->checkedPassword = true;
+        $this->passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
         $this->errorList = [];
     }
 }
