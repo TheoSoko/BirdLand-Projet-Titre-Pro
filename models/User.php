@@ -39,22 +39,30 @@ Class User{
     }
 
     //Appelle getLoginInfo
-    public function getPasswordHash($login): object{
+    public function getUserByLogin($login): object{
         $queryPart = $login == 'email' ? '`email` = :email' : '`username` = :username';
         $placeholder = $login == 'email' ? ':email' : ':username';
         $attribute = $login == 'email' ? 'email' : 'username';
-        return $this->getLoginInfo($queryPart, $placeholder, $attribute);
+        return $this->getUserInfo($queryPart, $placeholder, $attribute);
     }
     //Change en fonction du type de login
-    public function getLoginInfo($queryPart, $placeholder, $attribute): object
+    public function getUserInfo($queryPart, $placeholder, $attribute): object
     {
-        $query = 'SELECT `password` FROM ' . $this->table
+        $query = 'SELECT `password`, `id`, `username`, `email` FROM ' . $this->table
             . ' WHERE ' . $queryPart;
         $queryStatement = $this->db->prepare($query);
         $queryStatement->bindValue($placeholder, $this->{$attribute}, PDO::PARAM_STR);
         $queryStatement->execute();
         return $queryStatement->fetch(PDO::FETCH_OBJ);
     }
+
+    //Retourne l'id de la dernière colomne insérée
+    public function lastInsertId(){
+        $queryStatement = $this->db->query('SELECT LAST_INSERT_ID() FROM ' . $this->table);
+        $queryStatement->execute();
+        return intval($queryStatement->fetchColumn());
+    }
+
 
 
 

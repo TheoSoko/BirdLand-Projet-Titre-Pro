@@ -1,6 +1,7 @@
 <?php
 include '../models/User.php';
 include '../controllers/Security.php';
+session_start();
 
 if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
     $emailOrUsername = htmlspecialchars(trim($_POST['emailOrUsernameLogin']));
@@ -28,22 +29,25 @@ if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
 
     if ($data === false){
         //Ajax response
-        echo('identifiant ou mot de passe invalide');
+        echo('Identifiant ou mot de passe invalide');
     } else {
         $user = new User;
         $loginType == 'email' ? $user->setEmail($data['email']) : $user->setUsername($data['username']);
-        $passwordObj = $user->getPasswordHash($loginType);
-        if (empty($passwordObj->password)){
+        $userInfo = $user->getUserByLogin($loginType);
+        if (empty($userInfo->password)){
             //Ajax response
-            echo('identifiant ou mot de passe invalide');
+            echo('Identifiant ou mot de passe invalide');
         } else {
-            if (!password_verify($data['password'], $passwordObj->password)){
+            if (!password_verify($data['password'], $userInfo->password)){
                 //Ajax response
-                echo('identifiant ou mot de passe invalide');
+                echo('Identifiant ou mot de passe invalide');
             } else {
                 //Ajax response
                 echo ('OK');
-                // CA MARCHE !!!!!!!!!!!!!!!!
+                // CA MARCHE !
+                $_SESSION['username'] = $userInfo->username;
+                $_SESSION['email'] = $userInfo->email;
+                $_SESSION['id'] = $userInfo->id;
             }
         }
     }

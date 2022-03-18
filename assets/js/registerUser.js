@@ -35,7 +35,7 @@ document.addEventListener("click", action => {
                                 }
                             }  else if (errorEmailNode){
                                 errorEmailNode.remove()
-                            } 
+                            }
                             //Message d'erreur pour le nom d'utilisateur
                             if (key.includes("Username")){
                                 if (!errorUsernameNode){

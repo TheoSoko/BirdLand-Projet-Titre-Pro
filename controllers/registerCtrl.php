@@ -1,6 +1,7 @@
 <?php
 include '../models/User.php';
 include '../controllers/Security.php';
+session_start();
 
 if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) && isset($_POST['passwordRegistration'])){
     $email = htmlspecialchars(trim($_POST['emailRegistration']));
@@ -38,9 +39,14 @@ if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) 
             //Ajax response
             echo(json_encode($errorList));
         } else {
-            $user->registerNewUser();
-            //Ajax response
-            echo(1);
+            if ($user->registerNewUser()){
+                //CA MARCHE!
+                //Ajax response
+                echo(1);
+                $_SESSION['username'] = $user->getUsername();
+                $_SESSION['email'] = $user->getEmail();
+                $_SESSION['id'] = $user->lastInsertId();
+            }
         }
     }
 }

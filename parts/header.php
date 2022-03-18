@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'controllers/logoutCtrl.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -24,11 +29,15 @@
             <div class="dropdown nav-item">
                 <span class="nav-link dropBtn">Compte</span>
                 <div class="dropdownContent bg-dark">
-                    <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="loginButton">Connexion</span>
-                    <span id="registrationButton"> <a href="./userRegistration.php" class="text-myColor fs-5 text-decoration-none dropdownItem my-1 px-3 py-2">S'inscrire</a></span>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
-                    <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
+                    <?php if (!isset($_SESSION['id'])){ ?>
+                        <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="loginButton">Connexion</span>
+                        <span id="registrationButton"> <a href="./userRegistration.php" class="text-myColor fs-5 text-decoration-none dropdownItem my-1 px-3 py-2">S'inscrire</a></span>
+                    <?php } ?>
+                    <?php if (isset($_SESSION['id'])){ ?>
+                        <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
+                        <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
+                        <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
+                    <?php } ?>
                 </div>
             </div>
             <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
@@ -68,7 +77,7 @@
                 <label for="username" class="d-block text-myColor fs-4 my-2">Nom d'utilisateur ou mail : </label>
                 <input type="text" name="emailOrUsernameLogin" id="emailOrUsernameLogin" class="fs-5">
             </div>
-            <div class="my-4">
+            <div class="my-4" id="loginPasswordDiv">
                 <label for="password" class="d-block text-myColor fs-4 my-2">Mot de passe : </label>
                 <input type="password" name="passwordLogin" id="passwordLogin" class="fs-5">
             </div>
@@ -78,10 +87,10 @@
 
         <!-- Formulaire de Déconnexion-->
         <div class="modalForm pt-1 pb-2 my-3 rounded text-center" id="logoutModal">
-        <form action="" method="POST" id="logoutForm">
+        <form method="POST" id="logoutForm">
             <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Êtes-vous certain de vouloir vous déconnecter?</h2>
-            <div class="pb-2"><input type="submit" class="btn btn-secondary fw-bold fs-5 my-2 px-3" value="Oui" name="logoutSubmit"></div>
+            <div class="pb-2"><input type="submit" action="#" class="btn btn-secondary fw-bold fs-5 my-2 px-3" value="Oui" name="logoutSubmit"></div>
             <div class="pb-2"><input type="button" class="js-close-form closeFormModal btn btn-secondary fw-bold fs-5 my-2 px-3" value="Non" id="cancelLogout"></div>
         </form>
     </div>
@@ -89,4 +98,5 @@
 
 
 <script src="assets/js/loginUser.js"></script>
+<script src="assets/js/logout.js"></script>
 <script src="assets/js/accountFromNav.js"></script>

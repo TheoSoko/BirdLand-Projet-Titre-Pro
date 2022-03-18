@@ -11,12 +11,17 @@ document.addEventListener("click", action =>{
                         console.log("Compu-Tron not happy. I will destroy your planet, you damn humans.")
                     }
                     else if (xhr.responseText == 'OK') {
-                        window.location.href = "../userProfile.php"
+                       window.location.href = "../userProfile.php" 
+                       
                     } else {
-                        alert(xhr.responseText)
+                        let AccountNotFound = document.createElement("p")
+                        loginPasswordDiv.append(AccountNotFound)
+                        AccountNotFound.innerText = xhr.responseText
+                        AccountNotFound.id = "AccountNotFound"
+                        AccountNotFound.classList.add("text-danger", "fw-bold", "fs-4", "mx-2", "mt-5")
                     }
                 }
-            } 
+            }
         }
     }
 })

@@ -83,7 +83,7 @@ public function checkPassword():void{
         $this->errorList['invalidPassword'] = 'Le mot de passe ne peut pas contenir plus de 70 caractères';
     } else if (!preg_match($this->regexPassword, $this->password)) {
         $this->checkedPassword = false;
-        $this->errorList['invalidPassword'] = 'Le mot de passe doit contenir au moins une lettre, un chiffre, et un caractère spécial';
+        $this->errorList['invalidPassword'] = 'Le mot de passe doit contenir au moins une lettre, un chiffre, et un caractère spécial, et doit comporter au moins 8 caractères';
     } else {
         $this->checkedPassword = true;
     }
