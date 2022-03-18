@@ -5,10 +5,10 @@ include 'parts/header.php';
 
 
 
-<div class="pt-1 pb-2 my-3 rounded text-center " id="registrationModal">
+<div class="pt-1 pb-2 my-4 rounded text-center " id="registrationModal">
     <form method="POST" id="registrationForm">
         <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
-        <h2 class="h1 text-myColor mb-4 pb-3">Inscription</h2>
+        <h2 class="h1 text-myColor mb-5 pb-3">Créer un compte</h2>
         <div class="my-4" id="emailDivRegister">
             <label for="email" class="d-block text-myColor fs-4 my-2">Votre adresse mail : </label>
             <input type="mail" name="emailRegistration" id="emailRegistration" class="fs-5">

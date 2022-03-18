@@ -5,32 +5,36 @@ include '../controllers/Security.php';
 if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) && isset($_POST['passwordRegistration'])){
     $email = htmlspecialchars(trim($_POST['emailRegistration']));
     $username = htmlspecialchars(trim($_POST['usernameRegistration']));
-    $password = htmlspecialchars(trim($_POST['passwordRegistration']));
+    $password = (trim($_POST['passwordRegistration']));
 
     $checkData = new Security;
     $checkData->setEmail($email);
     $checkData->setUsername($username);
     $checkData->setPassword($password);
+    //Les champs doivent être en Pascal case (PascalCase)
+    $checkData->setFieldsToCheck(["Email", "Username", "Password"]);
+    //On vérifie tous les champs qu'on a indiqué
     $checkData->checkAll();
+    //On récupère les données, ou un faux
+    $data = $checkData->getVerifiedData();
 
-    $data = $checkData->getCheckedData();
 
-    if ($data === false){
+
+
+
+    if ($data == false){
         $errorList = $checkData->getErrorList();
-        //var_dump($errorList);
         //Ajax response
         echo(json_encode($errorList));
     } else {
-        //var_dump($data);
         $user = new User;
         $user->setUsername($data['username']);
         $user->setEmail($data['email']);
-        $user->setPassword($data['passwordHash']);
+        $user->setPassword(password_hash($data['password'], PASSWORD_DEFAULT));
 
         if ($user->checkIfUserExists()){
             $errorList = [];
             $errorList['existingUser'] = 'Cet utilisateur existe deja';
-            //var_dump($errorList);
             //Ajax response
             echo(json_encode($errorList));
         } else {
@@ -38,7 +42,5 @@ if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) 
             //Ajax response
             echo(1);
         }
-
     }
-
 }

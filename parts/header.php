@@ -26,18 +26,15 @@
                 <div class="dropdownContent bg-dark">
                     <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
                     <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="loginButton">Connexion</span>
-                    <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="registrationButton">S'inscrire</span>
+                    <span id="registrationButton"> <a href="./userRegistration.php" class="text-myColor fs-5 text-decoration-none dropdownItem my-1 px-3 py-2">S'inscrire</a></span>
                     <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
                     <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
                 </div>
             </div>
-            <!--<span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>-->
-            <span class="nav-item"> <a class="nav-link" href="/userRegistration.php">Inscription</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
             <span class="nav-item"> <a class="nav-link" href="#">Recherche</a> </span>
         </div>
     </nav>
-
-
 
     <!-- Formulaire d'inscription-->
     <!--
@@ -61,20 +58,21 @@
         </form>
     </div>
     -->
+
     <!-- Formulaire de connexion-->
     <div class="modalForm pt-1 pb-2 my-3 rounded text-center " id="loginModal">
         <form action="" method="POST" id="loginForm">
             <div class="d-flex justify-content-end me-3 closeFormModalDiv"><span class="js-close-form closeFormModal fs-1 fw-bold">&times;</span></div>
             <h2 class="h1 text-myColor mb-4 pb-3">Connexion</h2>
             <div class="my-4">
-                <label for="username" class="d-block text-myColor fs-4 my-2">Nom d'utilisateur ou mail: </label>
-                <input type="text" name="username" id="username" class="fs-5">
+                <label for="username" class="d-block text-myColor fs-4 my-2">Nom d'utilisateur ou mail : </label>
+                <input type="text" name="emailOrUsernameLogin" id="emailOrUsernameLogin" class="fs-5">
             </div>
             <div class="my-4">
                 <label for="password" class="d-block text-myColor fs-4 my-2">Mot de passe : </label>
-                <input type="password" name="password" id="password" class="fs-5">
+                <input type="password" name="passwordLogin" id="passwordLogin" class="fs-5">
             </div>
-            <div class="pb-2"><input type="submit" class="loginSubmit btn btn-secondary fw-bold fs-5 my-4" value="Se connecter" name="loginSubmit"></div>
+            <div class="pb-2"><input type="button" class="loginSubmit btn btn-secondary fw-bold fs-5 my-4" value="Se connecter" name="loginSubmit"></div>
         </form>
     </div>
 
@@ -90,5 +88,5 @@
 
 
 
-<!--<script src="assets/js/registerUser.js"></script>-->
+<script src="assets/js/loginUser.js"></script>
 <script src="assets/js/accountFromNav.js"></script>

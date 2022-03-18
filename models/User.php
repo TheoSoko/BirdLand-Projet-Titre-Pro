@@ -38,6 +38,24 @@ Class User{
         return $querystatement->fetchColumn();
     }
 
+    //Appelle getLoginInfo
+    public function getPasswordHash($login): object{
+        $queryPart = $login == 'email' ? '`email` = :email' : '`username` = :username';
+        $placeholder = $login == 'email' ? ':email' : ':username';
+        $attribute = $login == 'email' ? 'email' : 'username';
+        return $this->getLoginInfo($queryPart, $placeholder, $attribute);
+    }
+    //Change en fonction du type de login
+    public function getLoginInfo($queryPart, $placeholder, $attribute): object
+    {
+        $query = 'SELECT `password` FROM ' . $this->table
+            . ' WHERE ' . $queryPart;
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue($placeholder, $this->{$attribute}, PDO::PARAM_STR);
+        $queryStatement->execute();
+        return $queryStatement->fetch(PDO::FETCH_OBJ);
+    }
+
 
 
     //SETTERS
@@ -66,9 +84,6 @@ Class User{
     }
     public function getEmail():string{
         return $this->email;
-    }
-    public function getPassword():string{
-        return $this->password;
     }
     public function getToken():string{
         return $this->token;

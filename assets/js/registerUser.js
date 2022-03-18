@@ -46,7 +46,7 @@ document.addEventListener("click", action => {
                                 usernameDivRegister.append(errorUsername)
                                 } 
                             } else if (errorUsernameNode){
-                                errorUsername.remove()
+                                errorUsernameNode.remove()
                             } 
                             //Message d'erreur pour le mot de passe
                             if (key.includes("Password")){
@@ -77,9 +77,9 @@ document.addEventListener("click", action => {
 
                           })
 
-                        if (registrationModal.offsetHeight >= 660){
-                            registrationModal.style.top = "3%"
-                        }
+                        /*if (registrationModal.offsetHeight >= 660){
+                            registrationModal.style.top = "3%" 
+                        }*/
                     } 
                 }
             }

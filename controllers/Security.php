@@ -5,9 +5,8 @@ Class Security{
 private string $email;
 private string $username;
 private string $password;
-private string $passwordHash;
+private array $fieldsToCheck = [];
 private array $errorList = [];
-
 private bool $checkedEmail;
 private bool $checkedUsername;
 private bool $checkedPassword;
@@ -17,28 +16,35 @@ private string $regexPassword = '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&µ£\/\\~
 
 
 
-
 //Retourne les données si tous les attributs checked sont true
-public function getCheckedData(){
-    if ($this->checkedEmail === true && $this->checkedUsername === true && $this->checkedPassword === true){
-        $checkedData = ['username' => $this->username, 'email' => $this->email, 'passwordHash' => $this->passwordHash];
-        //array_push($checkedData, $this->email, $this->username, $this->passwordHash);
-    } else {
-        $checkedData = false;
+public function getVerifiedData(){
+    $verifiedData = [];
+    foreach ($this->fieldsToCheck as $field){
+        $checked = 'checked';
+        if ($this->{$checked . $field} === true){
+            $verifiedData[lcfirst($field)] = $this->{lcfirst($field)};
+        } else {
+            $verifiedData[lcfirst($field)] = false;
+        }
     }
-    return $checkedData;
+    if (in_array(false, $verifiedData)){
+        return false;
+    } else {
+        return $verifiedData;
+    }
 }
+
 //Retourne le tableau d'erreurs
 public function getErrorList():array{
     return $this->errorList;
 }
 
-
-
+//Vérifie tous les champs indiqués
 public function checkAll():void{
-    $this->checkEmail();
-    $this->checkUsername();
-    $this->checkPassword();
+    foreach ($this->fieldsToCheck as $field){
+        $check='check' . $field;
+        $this->$check();
+    }
 }
 
 //Vérification de l'adresse mail
@@ -80,7 +86,6 @@ public function checkPassword():void{
         $this->errorList['invalidPassword'] = 'Le mot de passe doit contenir au moins une lettre, un chiffre, et un caractère spécial';
     } else {
         $this->checkedPassword = true;
-        $this->passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
     }
 }
 
@@ -95,7 +100,9 @@ public function setUsername(string $username){
 public function setPassword(string $password){
     $this->password = $password;
 }
-
+public function setFieldsToCheck(array $fieldsToCheck){
+    $this->fieldsToCheck = $fieldsToCheck;
+}
 
 
 
