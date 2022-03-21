@@ -90,7 +90,20 @@ public function getSearchedAlbums(): array{
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
 
-
+/*
+//Récupère les abums favoris d'un utilisateur
+public function getAlbumsByUser(int $userId): array{
+    $query = 'SELECT `album`.`title` AS `alTitle`, `album`.`artist` AS `alArtist`, `album`.`id` AS `alId`, `album`.`cover_link` AS `alcover`'
+    . ' FROM ' . $this->table
+    . ' JOIN `user_has_album` ON `user_has_album`.`id` = ' . $this->table . '`.id`'
+    . ' JOIN `user` ON `user_has_album`.`id_user` = `user`.`id`'
+    . ' WHERE `user`.`id` = :userId';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':userId', $userId,  PDO::PARAM_INT);
+    $queryStatement->execute(); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
+*/
 
 
 public function setId(int $id){

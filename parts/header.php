@@ -36,7 +36,9 @@ include 'controllers/logoutCtrl.php';
                     <?php if (isset($_SESSION['id'])){ ?>
                         <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
                         <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
-                        <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){ ?>
+                            <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
+                        <?php } ?>
                     <?php } ?>
                 </div>
             </div>

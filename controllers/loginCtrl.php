@@ -48,6 +48,8 @@ if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
                 $_SESSION['username'] = $userInfo->username;
                 $_SESSION['email'] = $userInfo->email;
                 $_SESSION['id'] = $userInfo->id;
+                $_SESSION['role'] = $userInfo->role;
+                $_SESSION['profilePic'] = $userInfo->profilePic;
             }
         }
     }

@@ -48,7 +48,7 @@ Class User{
     //Change en fonction du type de login
     public function getUserInfo($queryPart, $placeholder, $attribute): object
     {
-        $query = 'SELECT `password`, `id`, `username`, `email` FROM ' . $this->table
+        $query = 'SELECT `password`, `id`, `username`, `email`, `profile_pic_link` AS `profilePic`, `role` FROM ' . $this->table
             . ' WHERE ' . $queryPart;
         $queryStatement = $this->db->prepare($query);
         $queryStatement->bindValue($placeholder, $this->{$attribute}, PDO::PARAM_STR);
@@ -63,6 +63,18 @@ Class User{
         return intval($queryStatement->fetchColumn());
     }
 
+    //Récupère les abums favoris d'un utilisateur
+    public function getAlbumsByUser(): array{
+    $query = 'SELECT `album`.`title` AS `alTitle`, `album`.`artist` AS `alArtist`, `album`.`id` AS `alId`, `album`.`cover_link` AS `alcover`'
+    . ' FROM ' . $this->table
+    . ' JOIN `user_has_album` ON `user_has_album`.`id_user` = ' . $this->table . '.`id`'
+    . ' JOIN `album` ON `user_has_album`.`id` = `album`.`id`'
+    . ' WHERE `user`.`id` = :userId';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':userId', $this->id, PDO::PARAM_INT);
+    $queryStatement->execute(); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
 
 
 
