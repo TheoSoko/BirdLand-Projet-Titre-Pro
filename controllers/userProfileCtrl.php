@@ -4,7 +4,12 @@ include './models/Band.php';
 include './models/User.php';
 
 if (isset($_SESSION['id'])){
-    $user = new User;
-    $user->setId($_SESSION['id']);
-    $userAlbums = $user->getAlbumsByUser();
+
+    $album = new Album;
+    $album->setUserId($_SESSION['id']);
+    $userAlbums = $album->getAlbumsByUser();
+    
+    $band = new band;
+    $band->setUserId($_SESSION['id']);
+    $userBands = $band->getBandsByUser();
 }

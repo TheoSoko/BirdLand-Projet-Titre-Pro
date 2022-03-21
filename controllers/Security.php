@@ -17,21 +17,15 @@ private string $regexPassword = '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&µ£\/\\~
 
 
 //Retourne les données si tous les attributs checked sont true
-public function getVerifiedData(){
-    $verifiedData = [];
+public function getCheckedData():bool{
+    $check = true;
     foreach ($this->fieldsToCheck as $field){
         $checked = 'checked';
-        if ($this->{$checked . $field} === true){
-            $verifiedData[lcfirst($field)] = $this->{lcfirst($field)};
-        } else {
-            $verifiedData[lcfirst($field)] = false;
+        if ($this->{$checked . $field} == false){
+            $check = false;
         }
     }
-    if (in_array(false, $verifiedData)){
-        return false;
-    } else {
-        return $verifiedData;
-    }
+    return $check;
 }
 
 //Retourne le tableau d'erreurs

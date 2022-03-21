@@ -370,20 +370,32 @@ body{
     background-color: #0a0a0a;
     height: 13rem;
 }
-.fa-gear{
+.userSettingsIcon{
     color: #898989;
+    position: relative;
+    top: 50%;
 }
+.userSettingsIcon:hover{
+    cursor: pointer;
+    color:#c2c1c1;
+}
+.settingsIconDiv{
+    height: 100%
+}
+.inputWidth{
+    width: 12em;
+}
+
 @media (max-width: 992px){
-    .fa-gear.fa-2xl{
+    .userSettingsIcon.fa-2xl{
         display: none;
     }
-    .fa-gear{
-        padding-top: 7.2rem;
+    .userSettingsIcon{
         padding-right: 1.5rem;
     }
 }
 @media (min-width: 992px){
-    .fa-gear.fa-xl{
+    .userSettingsIcon.fa-xl{
         display: none;
     }
     .profilePic{
@@ -394,8 +406,7 @@ body{
     .profileHeader{
         height: 25rem;
     }
-    .fa-gear{
-        padding-top: 14rem;
+    .userSettingsIcon{
         padding-right: 4rem;
     }
 }

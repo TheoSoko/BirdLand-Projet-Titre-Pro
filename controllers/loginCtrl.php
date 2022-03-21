@@ -24,21 +24,20 @@ if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
     //On vérifie tous les champs qu'on a indiqué
     $checkData->checkAll();
     //On récupère les données, ou un faux
-    $data = $checkData->getVerifiedData();
     //
 
-    if ($data === false){
+    if (!$checkData->getCheckedData() || !empty($checkData->getErrorList())){
         //Ajax response
         echo('Identifiant ou mot de passe invalide');
     } else {
         $user = new User;
-        $loginType == 'email' ? $user->setEmail($data['email']) : $user->setUsername($data['username']);
+        $loginType == 'email' ? $user->setEmail($emailOrUsername) : $user->setUsername($emailOrUsername);
         $userInfo = $user->getUserByLogin($loginType);
         if (empty($userInfo->password)){
             //Ajax response
             echo('Identifiant ou mot de passe invalide');
         } else {
-            if (!password_verify($data['password'], $userInfo->password)){
+            if (!password_verify($password, $userInfo->password)){
                 //Ajax response
                 echo('Identifiant ou mot de passe invalide');
             } else {
@@ -48,8 +47,16 @@ if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
                 $_SESSION['username'] = $userInfo->username;
                 $_SESSION['email'] = $userInfo->email;
                 $_SESSION['id'] = $userInfo->id;
-                $_SESSION['role'] = $userInfo->role;
-                $_SESSION['profilePic'] = $userInfo->profilePic;
+                if (isset($userInfo->role)){
+                    $_SESSION['role'] = $userInfo->role;
+                } else {
+                    $_SESSION['role'] = 'peasant';
+                }
+                if (isset($userInfo->profilePic)){
+                    $_SESSION['profilePic'] = $userInfo->profilePic;
+                } else {
+                    $_SESSION['profilePic'] = 'assets/img/userProfile/default-profile.jpg';
+                }
             }
         }
     }

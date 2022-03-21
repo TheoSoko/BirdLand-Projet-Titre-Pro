@@ -6,6 +6,7 @@ private PDO $db;
 private int $id;
 private string $table = '`band`';
 private string $name;
+private int $userId;
 
 
 
@@ -35,7 +36,7 @@ public function getBand(): object{
     return $queryStatement->fetch(PDO::FETCH_OBJ);
 }
 
-public function getIdFromName(){
+public function getIdFromName():int{
     $query = 'SELECT `id`'
             . ' FROM ' . $this->table 
             . ' WHERE `name` = :name' ;
@@ -45,12 +46,27 @@ public function getIdFromName(){
     return $queryStatement->fetchColumn();
 }
 
+public function getBandsByUser(): array{
+    $query = 'SELECT `band`.`name` AS `bandName`, `band`.`main_image_link` AS `bandImg`, `band`.`id` AS `bandId`'
+    . ' FROM ' . $this->table
+    . ' JOIN `user_has_band` ON `user_has_band`.`id` = ' . $this->table . '.`id`'
+    . ' JOIN `user` ON `user_has_band`.`id_user` = `user`.`id`'
+    . ' WHERE `user`.`id` = :userId';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':userId', $this->userId,  PDO::PARAM_INT);
+    $queryStatement->execute(); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
 
-public function setId($id){
+
+public function setId(int $id){
     $this->id = $id;
 }
-public function setName($name){
+public function setName(string $name){
     $this->name = $name;
+}
+public function setUserId(int $userId){
+    $this->userId = $userId;
 }
 
 }

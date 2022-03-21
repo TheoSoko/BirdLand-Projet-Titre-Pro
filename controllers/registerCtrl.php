@@ -16,22 +16,18 @@ if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) 
     $checkData->setFieldsToCheck(["Email", "Username", "Password"]);
     //On vérifie tous les champs qu'on a indiqué
     $checkData->checkAll();
-    //On récupère les données, ou un faux
-    $data = $checkData->getVerifiedData();
+    $errorList = $checkData->getErrorList();
 
-
-
-
-
-    if ($data == false){
-        $errorList = $checkData->getErrorList();
+    //Si des attributs "checked" sont false, ou si la liste d'erreurs n'est pas vide, on met la liste d'erreurs en réponse
+    if (!$checkData->getCheckedData() || !empty($errorList)){
         //Ajax response
         echo(json_encode($errorList));
     } else {
         $user = new User;
-        $user->setUsername($data['username']);
-        $user->setEmail($data['email']);
-        $user->setPassword(password_hash($data['password'], PASSWORD_DEFAULT));
+        $user->setUsername($_POST['usernameRegistration']);
+        $user->setEmail($_POST['emailRegistration']);
+        $user->setPassword(password_hash($_POST['passwordRegistration'], PASSWORD_DEFAULT));
+        $user->setCreationDate(date('Y-m-d'));
 
         if ($user->checkIfUserExists()){
             $errorList = [];

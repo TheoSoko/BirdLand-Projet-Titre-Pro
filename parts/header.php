@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 include 'controllers/logoutCtrl.php';
 ?>
 
@@ -38,8 +40,7 @@ include 'controllers/logoutCtrl.php';
                         <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){ ?>
                             <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
-                        <?php } ?>
-                    <?php } ?>
+                        <?php } } ?>
                 </div>
             </div>
             <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
