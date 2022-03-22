@@ -39,7 +39,7 @@ include 'controllers/collectionCtrl.php';
     <!--Barre de recherche-->
     <div class="text-center mb-5 mt-3 py-3 me-4">
         <svg class="mb-1 ms-1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-        <input type="search" name="searchArticle" id="searchArticle" class="py-1 ms-2"> 
+        <input type="search" name="searchArticle" id="searchArticle" class="py-1 ms-2">
     </div>
 
     <!-- Disposition et navigation-->
@@ -77,7 +77,7 @@ include 'controllers/collectionCtrl.php';
                     </form>
                 <?php } ?>
 
-                <!-- MODAL -->
+                <!-- JS -->
                 <div class="modalMusicians mx-auto" id="<?= $album->artist ?>">
                     <ul class="modalMusiciansList fw-bold rounded pe-4">
                         <?php 

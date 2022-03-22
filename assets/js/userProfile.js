@@ -59,7 +59,7 @@ document.addEventListener("click", action =>{
     }
 
     if (event.target.matches(".userSettingsIcon")){
-        window.location.href = "../accountSettings.php";
+        window.location.href = "../userAccountSettings.php";
     }
 
 

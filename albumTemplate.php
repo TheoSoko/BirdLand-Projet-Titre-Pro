@@ -25,10 +25,16 @@ include 'controllers/albumTemplateCtrl.php'
         </div>
         <div class="row mt-5">
             <div class="col text-start ms-2">
-                <p class="mt-4 mb-0 fs-3 text-myColor"><span class="fw-bold">Année de sortie :</span> <?= $yearOfRelease?></p>
+                <p class="mt-4 mb-1 fs-3 text-myColor fw-bold"><span class="addToFavorite" id="<?=$albumInfo->id?>"><span class="me-3">Ajouter aux favoris</span><i class="fa-solid fa-heart-circle-plus"></i></span></p>
+                <p class="mt-0 mb-0 fs-3 text-myColor"><span class="fw-bold">Année de sortie :</span> <?= $yearOfRelease?></p>
                 <p class="mt-0 fs-3 text-myColor"><span class="fw-bold">Genre : </span> Jazz moderne</p>
             </div>
         </div>
+        <!-- <i class="fa-solid fa-compact-disc addToFavorite"> -->
+        <!-- <i class="fa-solid fa-user-plus addToFavorite"> -->
+        <!-- <i class="fa-solid fa-record-vinyl addToFavorite"> -->
+
+
 
         <div class="row mt-5 pt-lg-3">
             <div class="col mx-4">
@@ -72,6 +78,6 @@ include 'controllers/albumTemplateCtrl.php'
     
 
     <script src="assets/js/redirectToMusician.js"></script>
-    
+    <script src="assets/js/addFavoriteItem.js"></script>
 </body>
 </html>

@@ -209,6 +209,10 @@ body{
 .italic{
     font-style: italic;
 }
+.addToFavorite:hover{
+    cursor: pointer;
+    color: white;
+}
 
 /* CSS PAGE ARTICLES */
     @media screen and (min-width: 576px){
@@ -360,6 +364,16 @@ body{
 /***   ***/
 
 /* COMPTE UTILISATEUR */
+#navUsername{
+    background-color: #000000;
+}
+#navUsername:hover{
+    color: #CECACA;
+}
+.dropdownItem{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}   
 .profilePic{
     background: lightblue;
     border-radius: 50%;

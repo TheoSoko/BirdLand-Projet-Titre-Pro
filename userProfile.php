@@ -33,7 +33,7 @@ include 'controllers/userProfileCtrl.php'
     <div class="justify-content-around d-flex mt-5 mx-5 pt-3 row albumSectionItem">
         <?php foreach ($userAlbums as $album){ ?>
             <div class="col-3 mt-5 mx-2 imageColSize albumSectionItem">
-                <img src="<?= $album->alcover ?>" alt="Image de la pochette d'album" width="100%" height="auto" class="albumSectionItem">
+                <a href="albumTemplate.php?id=<?= $album->alId ?>"><img src="<?= $album->alcover ?>" alt="Image de la pochette d'album" width="100%" height="auto" class="albumSectionItem"></a>
                 <div class="d-block text-center mt-2"><p class="text-myColor fs-4 albumSectionItem"><?= $album->alTitle ?></p></div>
             </div>
         <?php } ?>
@@ -43,13 +43,13 @@ include 'controllers/userProfileCtrl.php'
     <div class="justify-content-around d-flex mt-5 mx-5 pt-3 row bandSectionItem" name="bandSection">
         <?php foreach ($userBands as $band){ ?>
             <div class="col-3 mt-5 mx-2 imageColSize bandSectionItem">
-                <img src="<?= $band->bandImg ?>" alt="Image de la pochette d'album" width="100%" height="auto" class="bandSectionItem">
+                <a href="musicianTemplate.php?id=<?=$band->bandId?>"><img src="<?= $band->bandImg ?>" alt="Image de la pochette d'album" width="100%" height="auto" class="bandSectionItem"></a>
                 <div class="d-block text-center mt-2"><p class="text-myColor fs-4 bandSectionItem"><?= $band->bandName ?></p></div>
             </div>
         <?php } ?>
     </div>
 
-    <!-- Playslists-->
+    <!-- Playlists-->
     <div class="justify-content-around d-flex mt-5 mx-5 pt-3 row playlistSectionItem" name="playlistSection">
         <?php  ?>
             <div class="col-3 mt-5 mx-2 imageColSize playlistSectionItem">

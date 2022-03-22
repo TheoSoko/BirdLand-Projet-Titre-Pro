@@ -26,25 +26,30 @@ include 'controllers/logoutCtrl.php';
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <span class="nav-item"> <a class="nav-link" href="collection.php" id="tst">Collection</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="articles.php">Articles</a> </span>
             <span class="nav-item"> <a class="nav-link" href="musiciansList.php">Musiciens</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="articles.php">Articles</a> </span>
+            <span class="nav-item"> <a class="nav-link" href="#">Recherche</a> </span>
             <div class="dropdown nav-item">
-                <span class="nav-link dropBtn">Compte</span>
+                <?php if (isset($_SESSION['id'])){ ?>
+                    <span class="nav-link dropBtn">Compte</span>
+                <?php } else {?>
+                    <span class="nav-link dropBtn">Connexion</span>
+                <?php } ?>
                 <div class="dropdownContent bg-dark">
                     <?php if (!isset($_SESSION['id'])){ ?>
-                        <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="loginButton">Connexion</span>
-                        <span id="registrationButton"> <a href="./userRegistration.php" class="text-myColor fs-5 text-decoration-none dropdownItem my-1 px-3 py-2">S'inscrire</a></span>
+                        <span class="dropdownItem text-myColor fs-5 px-3" id="loginButton">Connexion</span>
+                        <span id="registrationButton"> <a href="./userRegistration.php" class="text-myColor fs-5 text-decoration-none dropdownItem my-1 px-3">S'inscrire</a></span>
                     <?php } ?>
                     <?php if (isset($_SESSION['id'])){ ?>
-                        <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="userProfile.php" id="profileButton">Profil</a>
-                        <span class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" id="logoutButton">Déconnexion</span>
+                        <span class="dropdownItem text-myColor fs-6 fw-bold px-3" id="navUsername"><?= $_SESSION['username'] ?></span>
+                        <a class="dropdownItem text-myColor fs-5 px-3 " href="userProfile.php" id="profileButton">Profil</a>
+                        <span class="dropdownItem text-myColor fs-5  px-3" id="logoutButton">Déconnexion</span>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){ ?>
-                            <a class="dropdownItem text-myColor fs-5 my-1 px-3 py-2" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
+                            <a class="dropdownItem text-myColor fs-5  px-3" href="officeAddTracks.php" id="profileButton">Back-office: Ajout pistes</a>
                         <?php } } ?>
                 </div>
             </div>
-            <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="#">Recherche</a> </span>
         </div>
     </nav>
 
