@@ -27,7 +27,6 @@ include 'parts/header.php';
                 </div>
                 <p class="text-myColor fs-4 mt-4"><span class="fw-bold"> Date de création du compte : </span><span><?= isset($profileCreationDate) ? $profileCreationDate : 'Non indiqué'?></span></p>
                 <a class="mt-5 fw-bold btn btn-danger" href="accountSettings.php?setting=deleteAccount"> Supprimer le compte </a>
-
             </div>
             <!--  -->
             <div class="col-lg-4"></div>
@@ -48,6 +47,9 @@ include 'parts/header.php';
                 foreach ($usernameErrorList as $error){?>
                     <p class="text-danger fs-4 mt-3"><?= $error ?></p>
         <?php }} ?>
+        <?php if (isset($successUsername)) {?>
+                <p class="text-success fs-4 mt-3"><?= $successUsername ?></p>
+        <?php }  ?>
     </form>
 <?php } ?>
 
@@ -64,6 +66,9 @@ include 'parts/header.php';
                 foreach ($emailErrorList as $error){?>
                     <p class="text-danger fs-4 mt-3"><?= $error ?></p>
         <?php }} ?>
+        <?php if (isset($successEmail)) {?>
+                <p class="text-success fs-4 mt-3"><?= $successEmail ?></p>
+        <?php }  ?>
     </form>
 <?php } ?>
 
@@ -75,26 +80,53 @@ include 'parts/header.php';
     <form action="" method="POST"class="text-center text-myColor fs-5 mt-4" enctype="multipart/form-data">
         <label for="newProfilePic" class="d-block mb-3 mt-4 pt-3 fs-5">Ajoutez une image de profil : </label>
         <input type="file" name="newProfilePic" id="">
-        <input type="btn" value="Confirmer" class="btn btn-secondary d-block mx-auto mt-4" name="changeProfilePicSubmit">
-        <p class="fs-4 mt-4 text-danger">Malheureusement, l'ajout d'image de profil n'est pas disponible pour l'instant.</p>
+        <input type="submit" value="Confirmer" class="btn btn-secondary d-block mx-auto mt-4" name="changeProfilePicSubmit">
         <?php if (isset($profilePicErrorList)){ 
                 foreach ($profilePicErrorList as $error){?>
                     <p class="text-danger fs-4 mt-3"><?= $error ?></p>
         <?php }} ?>
+        <?php if (isset($successProfilePic)) {?>
+                <p class="text-success fs-4 mt-3"><?= $successProfilePic ?></p>
+        <?php } ?>
     </form>
 <?php } ?>
 
+
 <!-- SUPPRESION DU COMPTE -->
-<?php if (isset($_GET['setting']) && $_GET['setting'] = 'deleteAccount'){ ?>
+<?php if (isset($_GET['setting']) && $_GET['setting'] == 'deleteAccount'){ ?>
     <div class="mt-5 pt-4 text-center">
         <h1 class="text-myColor display-6">Suppression du compte</h1>
-        <h1 class="text-myColor h2">Êtes-vous certain de vouloir supprimer votre compte? </h1>
-        <div class="mt-5"><button class="btn btn-danger px-3 me-3 fs-5">Oui</button><button class="ms-3 px-3 btn btn-secondary fs-5">Non</button></div>
+        <h1 class="text-myColor h2 mt-4">Êtes-vous certain de vouloir supprimer votre compte? </h1>
+        <div class="mt-5"><a class="btn btn-danger px-3 me-3 fs-5" href="accountSettings.php?setting=deleteAccountConfirm">Oui</a><a class="ms-3 px-3 btn btn-secondary fs-5" href="accountSettings.php">Non</a></div>
+    </div>
+<?php } ?>
+<?php if (isset($_GET['setting']) && $_GET['setting'] == 'deleteAccountConfirm' && !isset($deleteUserSuccess)){?>
+    <form action="" method="POST">
+        <div class="mt-4 pt-4 pb-1 text-center">
+            <h1 class="text-myColor h2 mt-4 mb-4 pb-3">Veuillez entrer votre mot de passe <br> pour confirmer la suppression <u>définitive</u>  du compte</h1>
+            <label for="userPassword" class="mb-2 d-block text-myColor fs-4">Mot de passe : </label>
+            <input type="password" name="userPassword" id="" class="inputWidth">
+        </div>
+        <div class="text-center mt-5"><input name="accountDeletion" type="submit" value="Supprimer mon compte" class="btn btn-danger fw-bold py-2"></div>
+        <?php if (isset($deleteUserErrorList)){ 
+                foreach ($deleteUserErrorList as $error){?>
+                <div class="text-center"><p class="text-danger fs-4 mt-4"><?= $error ?></p></div>
+        <?php }} ?>
+    </form>
+<?php } ?>
+
+
+<?php } ?>
+
+
+<?php if (isset($deleteUserSuccess)) {?>
+    <div class="text-center">
+        <p class="text-success fs-3 mt-5 pt-3 mb-5"><?= $deleteUserSuccess ?></p>
+        <a href="index.php" class="btn btn-secondary fs-4">Revenir au site</a>
     </div>
 <?php } ?>
 
 
-<?php } ?>
 
 </body>
 </html>

@@ -42,6 +42,7 @@ if (isset($_POST['emailRegistration']) && isset($_POST['usernameRegistration']) 
                 $_SESSION['username'] = $user->getUsername();
                 $_SESSION['email'] = $user->getEmail();
                 $_SESSION['id'] = $user->lastInsertId();
+                $_SESSION['profilePic'] = 'assets/img/userProfile/default-profile.jpg';
             }
         }
     }

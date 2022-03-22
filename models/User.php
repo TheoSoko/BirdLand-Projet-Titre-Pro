@@ -6,6 +6,7 @@ Class User{
     private string $username;
     private string $email;
     private string $password;
+    private string $profilePicLink;
     private string $token;
     private string $creationDate;
     private int $id;
@@ -40,6 +41,18 @@ Class User{
         $querystatement->bindValue(':email', $this->email, PDO::PARAM_STR);
         $querystatement->execute();
         return $querystatement->fetchColumn();
+    }
+
+    //Récupère les données de l'utilisateur grâce à son id
+    public function getUserById(): object
+    {
+        $query = 'SELECT `username`, `email`, `profile_pic_link` AS `profilePic`, `role`,'
+                . ' DATE_FORMAT(`creation_date`, \'%d/%m/%Y\') AS `creationDate`, `password` FROM ' . $this->table
+                . ' WHERE `id` = :id';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryStatement->execute();
+        return $queryStatement->fetch(PDO::FETCH_OBJ);
     }
 
     //Appelle getUserInfo //Change en fonction du type de login
@@ -99,8 +112,29 @@ Class User{
         $queryStatement->bindValue(':email', $this->email, PDO::PARAM_STR);
         return $queryStatement->execute();
     }
+    //Modifie l'image de profil
+    public function updateProfilePic():bool
+    {
+        $query = 'UPDATE' . $this->table
+                . 'SET `profile_pic_link` = :profilePicLink'
+                . ' WHERE `id` = :id';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryStatement->bindValue(':profilePicLink', $this->profilePicLink, PDO::PARAM_STR);
+        return $queryStatement->execute();
+    }
 
-
+    //Supprime le compte utilisateur
+    public function deleteUser():bool
+    {
+        $query = 'DELETE FROM' . $this->table
+                . ' WHERE `id` = :id AND `username` = :username AND `email` = :email';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryStatement->bindValue(':username', $this->username, PDO::PARAM_INT);
+        $queryStatement->bindValue(':email', $this->email, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
 
     //SETTERS
     public function setId(int $id):void{ 
@@ -114,6 +148,9 @@ Class User{
     }
     public function setPassword(string $password):void{
         $this->password = $password;
+    }
+    public function setProfilePicLink(string $profilePicLink):void{
+        $this->profilePicLink = $profilePicLink;
     }
     public function setToken(string $token):void{
         $this->token = $token;
