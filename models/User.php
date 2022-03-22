@@ -3,6 +3,9 @@ Class User{
 
     private PDO $db;
     private string $table = '`user`';
+    private string $userHasAlbumTable = '`user_has_album`'; 
+    private string $userHasBandTable = '`user_has_band`';
+    private string $userHasPlaylistTable = '`user_has_playlist`';
     private string $username;
     private string $email;
     private string $password;
@@ -10,6 +13,9 @@ Class User{
     private string $token;
     private string $creationDate;
     private int $id;
+    private int $favoriteAlbumId;
+    private int $favoriteBandId;
+    private int $favoritePlaylistId;
 
     public function __construct()
     {
@@ -124,6 +130,64 @@ Class User{
         return $queryStatement->execute();
     }
 
+    //Ajoute un album à l'utilisateur dans la table intermédiaire dédiée
+    public function addAlbum(){
+        $query = 'INSERT INTO ' . $this->userHasAlbumTable . '(`id`, `id_user`)'
+                . 'VALUES (:id, :idUser)';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteAlbumId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+    //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
+    public function addBand(){
+        $query = 'INSERT INTO ' . $this->userHasBandTable . '(`id`, `id_user`)'
+                . 'VALUES (:id, :idUser)';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteBandId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+    //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
+    public function addPlaylist(){
+        $query = 'INSERT INTO ' . $this->userHasPlaylistTable . '(`id`, `id_user`)'
+                . 'VALUES (:id, :idUser)';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoritePlaylistId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+
+
+    //Supprime un album favori dans la table intermédiaire dédiée
+    public function deleteFavoriteAlbum(){
+        $query = 'DELETE FROM ' . $this->userHasAlbumTable
+                . ' WHERE `id` = :id AND `id_user` = :idUser';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteAlbumId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+    //Supprime un groupe/musicien favori dans la table intermédiaire dédiée
+    public function deleteFavoriteBand(){
+        $query = 'DELETE FROM ' . $this->userHasBandTable
+                . ' WHERE `id` = :id AND `id_user` = :idUser';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteBandId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+    //Supprime une playlist favorite dans la table intermédiaire dédiée
+    public function deleteFavoritePlaylist(){
+        $query = 'DELETE FROM ' . $this->userHasPlaylistTable
+                . ' WHERE `id` = :id AND `id_user` = :idUser';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoritePlaylistId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        return $queryStatement->execute();
+    }
+
+
     //Supprime le compte utilisateur
     public function deleteUser():bool
     {
@@ -135,6 +199,8 @@ Class User{
         $queryStatement->bindValue(':email', $this->email, PDO::PARAM_INT);
         return $queryStatement->execute();
     }
+
+
 
     //SETTERS
     public function setId(int $id):void{ 
@@ -155,9 +221,19 @@ Class User{
     public function setToken(string $token):void{
         $this->token = $token;
     }
-    public function setCreationDate(string $creationDate){
+    public function setCreationDate(string $creationDate):void{
         $this->creationDate = $creationDate;
     }
+    public function setfavoriteAlbumId(int $favoriteAlbumId):void{
+        $this->favoriteAlbumId = $favoriteAlbumId;
+    }
+    public function setfavoriteBandId(int $favoriteBandId):void{
+        $this->favoriteBandId = $favoriteBandId;
+    }
+    public function setfavoritePlaylistId(int $favoritePlaylistId):void{
+        $this->favoritePlaylistId = $favoritePlaylistId;
+    }
+    
     //GETTERS
     public function getId():int{
         return $this->id;
