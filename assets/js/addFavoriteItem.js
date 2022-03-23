@@ -11,7 +11,7 @@ document.addEventListener("click", action => {
                 if (xhr.response !== false){
                     let message = xhr.responseText
                     if (message.includes("noSession")){
-                        alert("pas de session")
+                        console.log("pas de session")
                     } else if (message.includes('ok')){
                         favoriteIcon.classList.add("text-success")
                     }
@@ -31,7 +31,7 @@ document.addEventListener("click", action => {
                 if (xhr.response !== false){
                     let message = xhr.responseText
                     if (message.includes("noSession")){
-                        alert("pas de session")
+                        console.log("pas de session")
                     } else if (message.includes('ok')){
                         favoriteIcon.classList.add("text-success")
                     }

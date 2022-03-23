@@ -1,30 +1,32 @@
 <?php 
-include 'parts/header.php';
 include 'controllers/BandsListCtrl.php';
+include 'parts/header.php';
 ?>
 
-
-    <div class="text-center mt-5 pt-5 pb-4">
-        <H1 class="pt-3 px-5 text-myColor musiciansPageTitle">MUSICIENS</H1>
+    <div class="musicianListVisualHeader pt-5 pb-5 mt-0 mb-0">
+        <div class="text-center pb-5 mt-5">
+            <H1 class="pt-3 px-5 text-myColor musiciansPageTitle">MUSICIENS</H1>
+        </div>
     </div>
-
 
     <!-- Choix de Disposition des Musiciens -->
-    <div class="row d-flex justify-content-around me-2 selectOrderDisplay">
-        <div class="col-6 col-lg-3 text-center mb-2">
-            <p>Aléatoire</p>
+    <form action="#" method="GET">
+        <div class="row d-flex justify-content-around me-2 selectOrderDisplay">
+            <div class="col-6 col-lg-3 text-center mb-2">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Aléatoire">
+            </div>
+            <div class="col-6 col-lg-3 text-center mb-2">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Les plus populaires">
+            </div>
+            <div class="col-6 col-lg-3 text-center">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="De A à Z">
+            </div>
+            <div class="col-6 col-lg-3 text-center">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="De Z à A">
+            </div>
         </div>
-        <div class="col-6 col-lg-3 text-center mb-2">
-            <p>Les plus populaires</p>
-        </div>
-        <div class="col-6 col-lg-3 text-center">
-            <p>De A à Z</p>
-        </div>
-        <div class="col-6 col-lg-3 text-center">
-            <p>De Z à A</p>
-        </div>
-    </div>
-    
+    </form>
+
     <div class="row text-center pt-4">
         <div class="col">
             <p id="pageNumber" class="mb-0">Page 1 sur 12</p>
@@ -53,15 +55,14 @@ include 'controllers/BandsListCtrl.php';
 
         <!-- Musiciens -->
         <div class="row text-center mt-5 pt-3 mx-lg-1 albumsRow">
-
-                <?php foreach ($bandList as $band){ ?>
-                    <div class="col albumCol mb-3">
-                        <a href="musicianTemplate.php?id=<?=$band->id?>" class="text-decoration-none"><div class="album rounded"><img src="<?= $band->mainImage ?>" height="355px" width="355px" alt="" class="musiciansDisplayImg albumCollectionImg"></div>
-                            <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?=strlen($band->name) >= 30 ? substr_replace($band->name, '...', 30) : $band->name ?></p>
-                        </a>
-                    </div>
-                <?php } ?>
-
+           <?php foreach ($bandList as $band){ ?>
+               <div class="col albumCol mb-3">
+                   <a href="musicianTemplate.php?id=<?=$band->id?>" class="text-decoration-none"><div class="album rounded"><img src="<?= $band->mainImage ?>" height="355px" width="355px" alt="" class="musiciansDisplayImg albumCollectionImg"></div>
+                       <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?=strlen($band->name) >= 30 ? substr_replace($band->name, '...', 30) : $band->name ?></p>
+                   </a>
+               </div>
+           <?php } ?>
+        </div>
 
 
     

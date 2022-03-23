@@ -7,7 +7,7 @@ include 'controllers/musicianTemplateCtrl.php';
 <div class="row bandHeader">
     <div class="col-lg-4 text-center">
         <div class=""><img class="headerMainImage" src="<?= $bandInfo->mainImage ?>" alt=""></div>
-        <?php if (!$userHasBand) {?>
+        <?php if (empty($userHasBand)) {?>
         <!-- Ajout aux favoris pour grands écrans-->
             <p class="d-none d-lg-block mt-4 pt-2 pb-0 fs-4 ms-4 text-myColor text-center fw-bold" id="addAlbumP">
                 <span class="changeFavorite ms-5 ps-5" id="<?=$bandInfo->id?>" name="addFavoriteBand">
@@ -31,7 +31,7 @@ include 'controllers/musicianTemplateCtrl.php';
     </div>
     <div class="col-lg-8 headerText mt-3">
         <div class="text-center"><h1 class="text-light mt-4 pt-lg-5"><?= $bandInfo->bandName ?></h1></div>
-        <?php if (!$userHasBand) {?>
+        <?php if (empty($userHasBand)) {?>
         <!-- Ajout aux favoris pour petits écrans-->
             <p class="d-lg-none mt-5 pb-0 fs-3 text-myColor text-start ms-4 ms-sm-5 ps-4 ps-sm-5 fw-bold" id="addAlbumP">
                 <span class="changeFavorite" name="addFavoriteBand" id="<?=$bandInfo->id?>">

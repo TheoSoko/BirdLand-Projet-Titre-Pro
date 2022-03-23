@@ -24,11 +24,17 @@ public function __construct()
         die($error->getMessage());
     }
 }
+
+//Retourne tous les groupes par un ordre défini
+public function getAlbumsForDisplay(string $order){
+    return $this->getAlbumsByOrder($order);
+}
 // Récupère tous les albums
-public function getAlbumsForDisplay(): array{
-    $query = 'SELECT ' . $this->table . '.`id`, `title`, `cover_link` AS `cover`, `artist`'
-    . ' FROM ' . $this->table;
-    $queryStatement = $this->db->query($query); 
+public function getAlbumsByOrder($order): array{
+    $query = 'SELECT `id`, `title`, `cover_link` AS `cover`, `artist`'
+    . ' FROM ' . $this->table 
+    . ' ORDER BY ' . $order;
+    $queryStatement = $this->db->query($query);
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
 

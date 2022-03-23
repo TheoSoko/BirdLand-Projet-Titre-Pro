@@ -19,9 +19,14 @@ public function __construct()
     }
 }
 
-public function getAllForDisplay(): array{
+//Retourne tous les groupes par un ordre défini
+public function getAllForDisplay(string $order){
+    return $this->getAllByOrder($order);
+}
+private function getAllByOrder(string $order): array{
     $query = 'SELECT ' . $this->table . '.`id`, `name`, `main_image_link` AS `mainImage`, `presentation`'
-    . ' FROM ' . $this->table;
+    . ' FROM ' . $this->table
+    . ' ORDER BY ' . $order;
     $queryStatement = $this->db->query($query); 
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }

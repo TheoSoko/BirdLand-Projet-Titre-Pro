@@ -1,4 +1,7 @@
 <?php 
+if (!isset($_SESSION)){
+    session_start();
+}
 if (!isset($_GET['artistNameSubmit'])){
     include 'models/Album.php';
     include 'models/Band.php';
@@ -7,10 +10,36 @@ if (!isset($_GET['artistNameSubmit'])){
     include '../models/Band.php';
 }
 
-
-
 $album = new Album;
-$albumList = $album->getAlbumsForDisplay();
+
+//Disposition
+//Si l'utilisateur a choisi un ordre de disposition
+if (isset($_GET['displayByFilter'])){
+    if ($_GET['displayByFilter'] == 'Les plus récents'){
+        $order = '`id` DESC';
+        $albumList = $album->getAlbumsForDisplay($order);
+    }
+    if ($_GET['displayByFilter'] == 'Les plus populaires'){
+        $order = '`id` ASC';
+        $albumList = $album->getAlbumsForDisplay($order);    
+    }
+    if ($_GET['displayByFilter'] == 'De A à Z'){
+        $order = '`title` ASC';
+        $albumList = $album->getAlbumsForDisplay($order);    
+    }
+    if ($_GET['displayByFilter'] == 'De Z à A'){
+        $order = '`title` DESC';
+        $albumList = $album->getAlbumsForDisplay($order);
+    }
+} else {
+    //Par défault
+    $order = '`id` ASC';
+    $albumList = $album->getAlbumsForDisplay($order);
+}
+
+
+
+
 //Pour chaque album, la chaine de charactère correspondant aux musiciens devient un tableau
 //J'utilise des variables dynamiques afin d'avoir des noms de variable uniques pour chaque album
 foreach ($albumList as $album){
@@ -26,6 +55,9 @@ foreach ($albumList as $album){
         }
     }
 }
+
+
+
 
 
 /*

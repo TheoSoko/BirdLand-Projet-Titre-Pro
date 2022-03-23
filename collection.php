@@ -12,23 +12,24 @@ include 'controllers/collectionCtrl.php';
         </div>
     </div>
 
-    <!-- Choix de Disposition des albums -->
-    <div class="row text-center selectOrderDisplay">
-        <div class="col-6 col-lg-3 text-end pe-3 text-lg-center pe-lg-0">
-            <p>Aléatoire</p>
+    <!-- Choix de Disposition des Albums -->
+    <form action="#" method="GET">
+        <div class="row d-flex justify-content-around me-2 selectOrderDisplay">
+            <div class="col-6 col-lg-3 text-center mb-2">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="De A à Z">
+            </div>
+            <div class="col-6 col-lg-3 text-center mb-2">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="De Z à A">
+            </div>
+            <div class="col-6 col-lg-3 text-center">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Les plus populaires">
+            </div>
+            <div class="col-6 col-lg-3 text-center">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Les plus récents">
+            </div>
         </div>
-        <div class="col-6 col-lg-3 text-start ps-3 text-lg-center ps-lg-0">
-            <span class="me-3">A-Z</span>
-            <span>Z-A</span>
-        </div>
-
-        <div class="col-6 col-lg-3 text-end text-lg-center">
-            <p>Les plus populaires</p>
-        </div>
-        <div class="col-6 col-lg-3 text-start ps-4 text-lg-center ps-lg-0">
-            <p>Les plus récents</p>
-        </div>
-    </div>
+    </form>
+    
     <div class="row text-center pt-4">
         <div class="col">
             <p id="pageNumber" class="mb-0">Page 1 sur 7</p>
