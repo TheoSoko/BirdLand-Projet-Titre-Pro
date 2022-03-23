@@ -56,58 +56,14 @@ include 'controllers/BandsListCtrl.php';
 
                 <?php foreach ($bandList as $band){ ?>
                     <div class="col albumCol mb-3">
-                        <a href="musicianTemplate.php?id=<?=$band->id?>" class="text-decoration-none"><div class="album rounded"><img src="<?=$band->mainImage?>" height="355px" width="355px" alt="" class="musiciansDisplayImg albumCollectionImg"></div>
+                        <a href="musicianTemplate.php?id=<?=$band->id?>" class="text-decoration-none"><div class="album rounded"><img src="<?= $band->mainImage ?>" height="355px" width="355px" alt="" class="musiciansDisplayImg albumCollectionImg"></div>
                             <p class="albumMusicianInfos fw-bold pt-3 mb-0"><?=strlen($band->name) >= 30 ? substr_replace($band->name, '...', 30) : $band->name ?></p>
                         </a>
                     </div>
                 <?php } ?>
 
 
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col albumCol mb-3">
-                    <a href="album.html"><div class="album rounded"></div></a>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col col-lg-3 albumCol">
-                    <div class="album rounded"></div>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col col-lg-3 albumCol">
-                    <div class="album rounded"></div>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col col-lg-3 albumCol">
-                    <div class="album rounded"></div>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col col-lg-3 albumCol">
-                    <div class="album rounded"></div>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-                <div class="col col-lg-3 albumCol">
-                    <div class="album rounded"></div>
-                    <p class="albumOrMusicianInfos fw-bold pt-3 mb-0">Nom du musicien</p>
-                </div>
-        </div>
+
     
         <!-- Pré-Footer -->
         <div class="row text-center mt-5 pb-3">

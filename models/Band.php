@@ -27,7 +27,7 @@ public function getAllForDisplay(): array{
 }
 
 public function getBand(): object{
-    $query = 'SELECT ' . $this->table . '.`id`, `main_image_link` AS `mainImage`, `band`.`name` AS `bandName`, `presentation`'
+    $query = 'SELECT ' . $this->table . '.`id` AS `id`, `main_image_link` AS `mainImage`, `band`.`name` AS `bandName`, `presentation`'
     . ' FROM ' . $this->table
     . ' WHERE `band`.`id` = :bandId';
     $queryStatement = $this->db->prepare($query); 
@@ -69,6 +69,8 @@ public function getBandAlbums(){
     $queryStatement->execute(); 
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
+
+
 
 public function setId(int $id){
     $this->id = $id;

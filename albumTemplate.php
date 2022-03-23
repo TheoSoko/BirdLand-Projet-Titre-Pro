@@ -1,7 +1,7 @@
 <?php 
+include 'controllers/userDeleteItemCtrl.php';
 include 'parts/header.php';
 include 'controllers/albumTemplateCtrl.php';
-include 'controllers/userDeleteAlbum.php';
 ?>
 
     <div class="container mt-md-4">
@@ -27,7 +27,7 @@ include 'controllers/userDeleteAlbum.php';
             <div class="col text-start ms-2">
                 <p class="mt-4 mb-1 fs-3 text-myColor fw-bold" id="addAlbumP">
                     <?php if (empty($userHasAlbum)){ ?>
-                        <span class="changeFavorite" name="addToFavorites"id="<?=$albumInfo->id?>">
+                        <span class="changeFavorite" name="addFavoriteAlbum"id="<?=$albumInfo->id?>">
                             <span class="me-3">Ajouter aux favoris</span><i class="fa-solid fa-heart-circle-plus" id="favoriteIcon"> </i>
                         </span>
                     <?php } else { ?>

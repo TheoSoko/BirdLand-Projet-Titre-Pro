@@ -23,7 +23,7 @@ $albumTracks = $album->getAlbumTracks();
 
 $creditedMusicians = $album->getCreditedMusicians();
 
-
+//Vérifie si l'utilisateur a l'album dans ses favoris
 if (isset($_SESSION['id'])){
     $album->setUserId($_SESSION['id']);
     $userAlbums = $album->getAlbumsByUser();

@@ -140,7 +140,7 @@ Class User{
         return $queryStatement->execute();
     }
     public function checkIfFavoriteAlbumExists():int{
-        $query = 'SELECT COUNT(1) `id` FROM ' . $this->userHasAlbumTable 
+        $query = 'SELECT COUNT(1) `id` FROM ' . $this->userHasAlbumTable
                 . 'WHERE `id` = :id AND `id_user` = :idUser';
         $queryStatement = $this->db->prepare($query);
         $queryStatement->bindValue(':id', $this->favoriteAlbumId, PDO::PARAM_INT);
@@ -148,6 +148,7 @@ Class User{
         $queryStatement->execute();
         return $queryStatement->fetchColumn();
     }
+
     //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
     public function addFavoriteBand(){
         $query = 'INSERT INTO ' . $this->userHasBandTable . '(`id`, `id_user`)'
@@ -157,6 +158,16 @@ Class User{
         $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
         return $queryStatement->execute();
     }
+    public function checkIfFavoriteBandExists():int{
+        $query = 'SELECT COUNT(1) `id` FROM ' . $this->userHasBandTable
+                . 'WHERE `id` = :id AND `id_user` = :idUser';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteBandId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        $queryStatement->execute();
+        return $queryStatement->fetchColumn();
+    }
+
     //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
     public function addFavoritePlaylist(){
         $query = 'INSERT INTO ' . $this->userHasPlaylistTable . '(`id`, `id_user`)'
@@ -166,6 +177,7 @@ Class User{
         $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
         return $queryStatement->execute();
     }
+
 
 
     //Supprime un album favori dans la table intermédiaire dédiée
@@ -196,6 +208,7 @@ Class User{
         return $queryStatement->execute();
     }
 
+
     //Retourne la date de création du compte
     public function getFavoriteAlbums()
     {
@@ -207,6 +220,7 @@ Class User{
         return $queryStatement->fetchColumn();
     }
 
+    
     //Supprime le compte utilisateur
     public function deleteUser():bool
     {
