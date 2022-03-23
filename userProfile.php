@@ -19,12 +19,12 @@ include 'controllers/userProfileCtrl.php'
     </div>
 
 
-    <div class="selectUserCategory mt-5">
+    <div class="selectUserCategory mt-5 pt-2 ms-5 ps-3">
         <ul class="list-group list-group-horizontal">
-            <li class="list-group-item btn btn-dark userView" id="userAlbumButton">Albums</li>
-            <li class="list-group-item btn btn-dark userView" id="userBandButton">Artistes</li>
-            <li class="list-group-item btn btn-dark userView" id="userPlaylistButton">Playlists</li>
-            <li class="list-group-item btn btn-dark userView" id="userAlertsButton">Alertes</li>
+            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userAlbumButton">Albums</li>
+            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userBandButton">Artistes</li>
+            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userPlaylistButton">Playlists</li>
+            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userAlertsButton">Alertes</li>
         </ul>
     </div>
 

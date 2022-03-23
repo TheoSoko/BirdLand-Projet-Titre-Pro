@@ -10,10 +10,9 @@ document.addEventListener("click", action =>{
                     if (xhr.response == false) {
                         console.log("Compu-Tron not happy. I will destroy your planet, you damn humans.")
                     }
-                    else if (xhr.responseText == 'OK') {
-                       window.location.href = "../userProfile.php" 
-                       
-                    } else {
+                    else if (xhr.responseText.includes("OK")) {
+                       window.location.href = document.URL
+                    } else if (xhr.responseText.includes("Identifiant")){
                         let AccountNotFound = document.createElement("p")
                         loginPasswordDiv.append(AccountNotFound)
                         AccountNotFound.innerText = xhr.responseText

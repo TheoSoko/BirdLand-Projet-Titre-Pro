@@ -57,7 +57,18 @@ public function getBandsByUser(): array{
     $queryStatement->execute(); 
     return $queryStatement->fetchAll(PDO::FETCH_OBJ);
 }
-
+public function getBandAlbums(){
+    $query = 'SELECT `album`.`title` AS `albumTitle`, `album`.`id` AS `albumId`, `album`.`artist` AS `albumArtist`,'
+    . ' `album`.`cover_link` AS `albumCover` '
+    . ' FROM ' . $this->table
+    . ' JOIN `credited_band` ON `credited_band`.`id_band` = ' . $this->table . '.`id`'
+    . ' JOIN `album` ON `credited_band`.`id_album` = `album`.`id`'
+    . ' WHERE ' . $this->table . '.`id` = :bandId';
+    $queryStatement = $this->db->prepare($query); 
+    $queryStatement->bindValue(':bandId', $this->id, PDO::PARAM_INT);
+    $queryStatement->execute(); 
+    return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+}
 
 public function setId(int $id){
     $this->id = $id;

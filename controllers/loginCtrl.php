@@ -50,7 +50,7 @@ if (isset($_POST['emailOrUsernameLogin']) && isset($_POST['passwordLogin'])){
                 if (isset($userInfo->role)){
                     $_SESSION['role'] = $userInfo->role;
                 } else {
-                    $_SESSION['role'] = 'peasant';
+                    $_SESSION['role'] = 'user';
                 }
                 if (isset($userInfo->profilePic)){
                     $_SESSION['profilePic'] = $userInfo->profilePic;

@@ -1,8 +1,8 @@
 <?php 
 include 'parts/header.php';
-include 'controllers/albumTemplateCtrl.php'
+include 'controllers/albumTemplateCtrl.php';
+include 'controllers/userDeleteAlbum.php';
 ?>
-
 
     <div class="container mt-md-4">
         <div class="row">
@@ -25,7 +25,21 @@ include 'controllers/albumTemplateCtrl.php'
         </div>
         <div class="row mt-5">
             <div class="col text-start ms-2">
-                <p class="mt-4 mb-1 fs-3 text-myColor fw-bold"><span class="addToFavorite" id="<?=$albumInfo->id?>"><span class="me-3">Ajouter aux favoris</span><i class="fa-solid fa-heart-circle-plus"></i></span></p>
+                <p class="mt-4 mb-1 fs-3 text-myColor fw-bold" id="addAlbumP">
+                    <?php if (empty($userHasAlbum)){ ?>
+                        <span class="changeFavorite" name="addToFavorites"id="<?=$albumInfo->id?>">
+                            <span class="me-3">Ajouter aux favoris</span><i class="fa-solid fa-heart-circle-plus" id="favoriteIcon"> </i>
+                        </span>
+                    <?php } else { ?>
+                        <form action="" method="POST">
+                            <span class="text-myColor">
+                                <span class="mb-0 pb-0 mt-2"><input type="submit" name="deleteFavoriteAlbum" class="fs-3 fw-bold inputRemoveStyle changeFavorite" value="Retirer des favoris"></span></span>
+                                <input type="hidden" name="albumId" value="<?= $albumInfo->id ?>">
+                                <i class="fa-solid fa-compact-disc fa-xl fs-1 text-success ms-3" id="favoriteIcon"></i>
+                            </span>
+                        </form>
+                    <?php } ?>
+                </p>
                 <p class="mt-0 mb-0 fs-3 text-myColor"><span class="fw-bold">Année de sortie :</span> <?= $yearOfRelease?></p>
                 <p class="mt-0 fs-3 text-myColor"><span class="fw-bold">Genre : </span> Jazz moderne</p>
             </div>

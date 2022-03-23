@@ -33,7 +33,6 @@ function playlistsVisible(){
     })
 }
 
-    albumsDisplayNone()
     bandsDisplayNone()
     playlistsDisplayNone()
 

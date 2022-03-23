@@ -131,7 +131,7 @@ Class User{
     }
 
     //Ajoute un album à l'utilisateur dans la table intermédiaire dédiée
-    public function addAlbum(){
+    public function addFavoriteAlbum(){
         $query = 'INSERT INTO ' . $this->userHasAlbumTable . '(`id`, `id_user`)'
                 . 'VALUES (:id, :idUser)';
         $queryStatement = $this->db->prepare($query);
@@ -139,8 +139,17 @@ Class User{
         $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
         return $queryStatement->execute();
     }
+    public function checkIfFavoriteAlbumExists():int{
+        $query = 'SELECT COUNT(1) `id` FROM ' . $this->userHasAlbumTable 
+                . 'WHERE `id` = :id AND `id_user` = :idUser';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->favoriteAlbumId, PDO::PARAM_INT);
+        $queryStatement->bindValue(':idUser', $this->id, PDO::PARAM_INT);
+        $queryStatement->execute();
+        return $queryStatement->fetchColumn();
+    }
     //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
-    public function addBand(){
+    public function addFavoriteBand(){
         $query = 'INSERT INTO ' . $this->userHasBandTable . '(`id`, `id_user`)'
                 . 'VALUES (:id, :idUser)';
         $queryStatement = $this->db->prepare($query);
@@ -149,7 +158,7 @@ Class User{
         return $queryStatement->execute();
     }
     //Ajoute un groupe/musicien à l'utilisateur dans la table intermédiaire dédiée
-    public function addPlaylist(){
+    public function addFavoritePlaylist(){
         $query = 'INSERT INTO ' . $this->userHasPlaylistTable . '(`id`, `id_user`)'
                 . 'VALUES (:id, :idUser)';
         $queryStatement = $this->db->prepare($query);
@@ -187,6 +196,16 @@ Class User{
         return $queryStatement->execute();
     }
 
+    //Retourne la date de création du compte
+    public function getFavoriteAlbums()
+    {
+        $query = 'SELECT DATE_FORMAT(`creation_date`, \'%d/%m/%Y\') AS `creationDate` FROM ' . $this->table
+            . ' WHERE `id` = :id';
+        $queryStatement = $this->db->prepare($query);
+        $queryStatement->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryStatement->execute();
+        return $queryStatement->fetchColumn();
+    }
 
     //Supprime le compte utilisateur
     public function deleteUser():bool

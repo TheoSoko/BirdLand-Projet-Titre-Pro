@@ -19,11 +19,20 @@ $arrayLenght = count($arrayArtists);
         }
     }
 
-
-
-
-
 $albumTracks = $album->getAlbumTracks();
 
 $creditedMusicians = $album->getCreditedMusicians();
+
+
+if (isset($_SESSION['id'])){
+    $album->setUserId($_SESSION['id']);
+    $userAlbums = $album->getAlbumsByUser();
+    $albumIds = [];
+    foreach ($userAlbums as $album){
+        $albumIds[] = $album->alId;
+    }
+    if (in_array($_GET['id'], $albumIds)){
+        $userHasAlbum = true;
+    }
+}
 
