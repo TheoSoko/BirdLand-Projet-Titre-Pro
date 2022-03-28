@@ -5,7 +5,7 @@ include 'controllers/userProfileCtrl.php'
 
 <?php if (isset($_SESSION['id'])) {?>
 
-    <div class="row profileHeader pt-5">
+    <div class="row profileHeader pt-2 pt-lg-5 ">
         <div class="col"></div>
         <div class="col text-center">
             <?php if (!empty($_SESSION['profilePic'])){ ?>
@@ -13,18 +13,18 @@ include 'controllers/userProfileCtrl.php'
             <?php } else { ?>
                 <div class="profilePic mx-auto px-lg-5"></div>
             <?php } ?>
-            <p class="text-myColor fs-4 fw-bold mt-3"><?= $_SESSION['username'] ?></p>
+            <p class="text-myColor fs-4 fw-bold mt-1 mt-lg-3"><?= $_SESSION['username'] ?></p>
         </div>
-        <div class="col"><div class="settingsIconDiv text-end"><i class="fa-solid fa-gear fa-xl userSettingsIcon"></i><i class="fa-solid fa-gear fa-2xl userSettingsIcon"></i></div></div>
+        <div class="col"><div class="settingsIconDiv text-end"><i class="fa-solid fa-gear fa-xl userSettingsIcon pt-5 me-sm-4 me-md-5 me-lg-0"></i><i class="fa-solid fa-gear fa-2xl userSettingsIcon"></i></div></div>
     </div>
 
 
-    <div class="selectUserCategory mt-5 pt-2 ms-5 ps-3">
+    <div class="selectUserCategory mt-5 pt-2 ms-3 ps-1 ms-sm-5 ps-sm-3">
         <ul class="list-group list-group-horizontal">
-            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userAlbumButton">Albums</li>
-            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userBandButton">Artistes</li>
-            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userPlaylistButton">Playlists</li>
-            <li class="list-group-item btn btn-dark userView px-4 mx-1 fs-5" id="userAlertsButton">Alertes</li>
+            <li class="list-group-item btn btn-dark userView px-sm-4 mx-1 fs-6 fs-sm-5" id="userAlbumButton">Albums</li>
+            <li class="list-group-item btn btn-dark userView px-sm-4 mx-1 fs-6 fs-sm-5" id="userBandButton">Artistes</li>
+            <li class="list-group-item btn btn-dark userView px-sm-4 mx-1 fs-6 fs-sm-5" id="userPlaylistButton">Playlists</li>
+            <li class="list-group-item btn btn-dark userView px-sm-4 mx-1 fs-6 fs-sm-5" id="userAlertsButton">Alertes</li>
         </ul>
     </div>
 

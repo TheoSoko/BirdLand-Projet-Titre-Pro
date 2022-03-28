@@ -30,7 +30,7 @@ include 'parts/header.php';
                     <div class="col-12 col-lg-6"><img class="" src="<?= $_SESSION['profilePic']?>" alt="Image de profil de l'utilisateur" width="100px"></div>
                     <div class="mt-4"><a class="btn btn-secondary mt-3 mb-5 d-inline d-lg-none py-2 px-5" href="userAccountSettings.php?setting=profilePic">Modifier</a></div>
                 </div>
-                <p class="text-myColor fs-4 pt-3 mt-5 mt-lg-4"><span class="fw-bold d-block d-lg-inline"> Date de création du compte : </span><span><?= isset($profileCreationDate) ? $profileCreationDate : 'Non indiqué'?></span></p>
+                <p class="text-myColor fs-4 pt-3 mt-5 mt-lg-4"><span class="fw-bold d-block d-lg-inline"> Date de création du compte : </span><span><?= isset($profileCreationDate) ? $profileCreationDate : 'Non indiquée'?></span></p>
                 <a class="mt-5 fw-bold btn btn-danger" href="userAccountSettings.php?setting=deleteAccount"> Supprimer le compte </a>
             </div>
             <!--  -->
@@ -97,12 +97,15 @@ include 'parts/header.php';
 <?php } ?>
 
 
-<!-- SUPPRESION DU COMPTE -->
+<!-- SUPPRESSION DU COMPTE -->
 <?php if (isset($_GET['setting']) && $_GET['setting'] == 'deleteAccount'){ ?>
     <div class="mt-5 pt-4 text-center">
         <h1 class="text-myColor display-6">Suppression du compte</h1>
         <h1 class="text-myColor h2 mt-4">Êtes-vous certain de vouloir supprimer votre compte? </h1>
-        <div class="mt-5"><a class="btn btn-danger px-3 me-3 fs-5" href="userAccountSettings.php?setting=deleteAccountConfirm">Oui</a><a class="ms-3 px-3 btn btn-secondary fs-5" href="userAccountSettings.php">Non</a></div>
+        <div class="mt-5">
+            <a class="btn btn-danger px-3 me-3 fs-5" href="userAccountSettings.php?setting=deleteAccountConfirm">Oui</a>
+            <a class="ms-3 px-3 btn btn-secondary fs-5" href="userAccountSettings.php">Non</a>
+        </div>
     </div>
 <?php } ?>
 <?php if (isset($_GET['setting']) && $_GET['setting'] == 'deleteAccountConfirm' && !isset($deleteUserSuccess)){?>

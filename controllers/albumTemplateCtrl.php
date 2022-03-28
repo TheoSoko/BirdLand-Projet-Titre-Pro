@@ -20,8 +20,19 @@ $arrayLenght = count($arrayArtists);
     }
 
 $albumTracks = $album->getAlbumTracks();
+//Remplacements de caractères dans la durée des titres
+foreach ($albumTracks as $track){
+    if (substr($track->duration, 0, 4) == '00:0' ){
+        $track->duration = substr_replace($track->duration, '', 0, 4);
+    }
+    if (substr($track->duration, 0, 3) == '00:' ){
+        $track->duration = substr_replace($track->duration, '', 0, 3);
+    }
+}
+
 
 $creditedMusicians = $album->getCreditedMusicians();
+
 
 //Vérifie si l'utilisateur a l'album dans ses favoris
 if (isset($_SESSION['id'])){

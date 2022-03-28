@@ -42,19 +42,31 @@ document.addEventListener("click", action =>{
         albumsVisible()
         bandsDisplayNone()
         playlistsDisplayNone()
-        window.scrollTo(0, window.innerHeight - 210)
+        if (window.innerWidth > 992 && window.scrollY < 992){
+            window.scrollTo(0, 510)
+        } else if (window.scrollY < 350){
+            window.scrollTo(0, 350)
+        }
     }
     if (event.target.matches("#userBandButton")){
         bandsVisible()
         albumsDisplayNone()
         playlistsDisplayNone()
-        window.scrollTo(0, window.innerHeight - 210)
+        if (window.innerWidth > 992 && window.scrollY < 992){
+            window.scrollTo(0, 510)
+        } else if (window.scrollY < 350){
+            window.scrollTo(0, 350)
+        }
     }
     if (event.target.matches("#userPlaylistButton")){
         playlistsVisible()
         bandsDisplayNone()
         albumsDisplayNone()
-        window.scrollTo(0, window.innerHeight - 210)
+        if (window.innerWidth > 992 && window.scrollY < 992){
+            window.scrollTo(0, 510)
+        } else if (window.scrollY < 350){
+            window.scrollTo(0, 350)
+        }
     }
 
     if (event.target.matches(".userSettingsIcon")){

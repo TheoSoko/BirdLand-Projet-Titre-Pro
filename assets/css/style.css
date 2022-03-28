@@ -17,6 +17,8 @@ body{
     color: #A6A3A3;
     font-family: perpetua;
     font-size: 1.7em;
+    margin-right: 1.5em;
+    margin-left: 1.5em;
 }
 .navbar-brand{
     color: #A6A3A3;
@@ -26,10 +28,7 @@ body{
 .navbar-brand{
     margin-left: 4.3em;
 }
-.nav-link{
-    margin-right: 1.5em;
-    margin-left: 1.5em;
-}
+
 #navbarSupportedContent{
     justify-content: center;
     margin-right: 2.2em;
@@ -62,13 +61,14 @@ body{
     border: solid 0.4px #707070;
 }
 .presentation{
-    width: 727px;
+    width: 740px;
     height: 332px;
-    background-color: #A1A2A7;
+    background-color: #262B32;
     font-family: perpetua;
-    color: #3C3B3B;
+    color: #A9A5A5;
     text-align: center;
     margin-top: 5.6em;
+    border-radius: 9px;
 }
 #h2Presentation{
     font-size: 3.27em;
@@ -91,6 +91,14 @@ body{
     border-radius: 1em;
     border: solid 0.4px #707070;
 }
+@media (min-width: 900px){
+    #textLinkPresentation{
+        width: 600px;
+        padding-right: 40px;
+        padding-left: 40px;
+        border-radius: 1.3em;
+    }
+}
 .blocCategoryText {
     text-decoration: none;
     color: #3C3B3B;
@@ -105,13 +113,13 @@ body{
  .blocCategory{
     width: 9.1em;
     height: 5.9em;
-    background-color: #A1A2A7;
+    background-color: #403E3E;
+    /*background-color: #A1A2A7;*/
     font-family: perpetua;
     padding-top: 2.1em;
 }
  .blocCategoryDark{
     background-color: #403E3E;
-
 }
 .blocCulture{
     width: 10.6em;
@@ -382,10 +390,26 @@ body{
     width: 100px;
     height: 100px;
 }
+
+
 .profileHeader{
     background-color: #0a0a0a;
-    height: 13rem;
+    height: 17.5rem;
 }
+@media (min-width: 576px){
+    .profileHeader{
+        height: 18.5rem;
+    }
+}
+@media (min-width: 992px){
+    .profileHeader{
+        height: 13rem;
+    }
+}
+
+
+
+
 .userSettingsIcon{
     color: #898989;
     position: relative;
@@ -506,7 +530,7 @@ body{
     }
     .presentation{
         width: 361px;
-        height: 345px;
+        height: auto;
     }
     #h2Presentation{
         font-size: 2.4em;
@@ -645,6 +669,11 @@ body{
     }
     .collectionChangePage{
         margin-bottom: 55px;
+    }
+    .presentation{
+        width: 740px;
+        padding-left: 22px;
+        padding-right: 22px;
     }
     .articlesPresentation{
         width: 750px;

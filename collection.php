@@ -22,10 +22,10 @@ include 'controllers/collectionCtrl.php';
                 <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="De Z à A">
             </div>
             <div class="col-6 col-lg-3 text-center">
-                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Les plus populaires">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Ajoutés recemment">
             </div>
             <div class="col-6 col-lg-3 text-center">
-                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Les plus récents">
+                <input class="inputRemoveStyle fw-bold" type="submit" name="displayByFilter" value="Sorties récentes">
             </div>
         </div>
     </form>

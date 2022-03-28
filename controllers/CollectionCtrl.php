@@ -15,12 +15,12 @@ $album = new Album;
 //Disposition
 //Si l'utilisateur a choisi un ordre de disposition
 if (isset($_GET['displayByFilter'])){
-    if ($_GET['displayByFilter'] == 'Les plus récents'){
+    if ($_GET['displayByFilter'] == 'Ajoutés recemment'){
         $order = '`id` DESC';
         $albumList = $album->getAlbumsForDisplay($order);
     }
-    if ($_GET['displayByFilter'] == 'Les plus populaires'){
-        $order = '`id` ASC';
+    if ($_GET['displayByFilter'] == 'Sorties récentes'){
+        $order = '`releaseDate` DESC';
         $albumList = $album->getAlbumsForDisplay($order);    
     }
     if ($_GET['displayByFilter'] == 'De A à Z'){

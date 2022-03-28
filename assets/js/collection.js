@@ -1,16 +1,16 @@
-document.addEventListener("click", action => {
-    if (event.target.matches(".js-musicians-info")) {
-        let musicians = event.target.dataset.musicians
+document.addEventListener("click", event1 => {
+    if (event1.target.matches(".js-musicians-info")) {
+        let musicians = event1.target.dataset.musicians
         //musicianList = musicians.split(", ")
         //console.log(musicianList)
         if (musicians.length >= 3){
             console.log("oui")
             document.getElementById(musicians).style.display = "block"
-            event.target.style.display = "none"
+            event1.target.style.display = "none"
         }
-        let previousEventTarget = event.target
-        document.addEventListener("click", action => {
-            if (event.target != previousEventTarget){
+        let previousEventTarget = event1.target
+        document.addEventListener("click", event2 => {
+            if (event2.target != previousEventTarget){
                 document.getElementById(musicians).style.display = "none"
                 previousEventTarget.style.display = "block"
             }

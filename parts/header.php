@@ -25,11 +25,10 @@ include 'controllers/logoutCtrl.php';
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <span class="nav-item"> <a class="nav-link" href="collection.php" id="tst">Collection</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="musiciansList.php">Musiciens</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="#">Playlists</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="articles.php">Articles</a> </span>
-            <span class="nav-item"> <a class="nav-link" href="#">Recherche</a> </span>
+            <span class="nav-item px-2"> <a class="nav-link" href="collection.php" id="tst">Collection</a> </span>
+            <span class="nav-item px-2"> <a class="nav-link" href="musiciansList.php">Musiciens</a> </span>
+            <span class="nav-item px-2"> <a class="nav-link" href="#">Playlists</a> </span>
+            <span class="nav-item px-2"> <a class="nav-link" href="articles.php">Articles</a> </span>
             <div class="dropdown nav-item">
                 <?php if (isset($_SESSION['id'])){ ?>
                     <span class="nav-link dropBtn">Compte</span>
